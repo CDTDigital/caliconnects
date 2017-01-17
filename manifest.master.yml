@@ -1,9 +1,9 @@
 ---
 applications:
-- name: garage-ruby-starter
-  host: garage-ruby-starter
+- name: shiny-fawn
+  host: shiny-fawn
   path: .
   memory: 256MB
-  instances: 1
-  buildpack: https://github.com/cloudfoundry/ruby-buildpack
+  instances: 3
+  buildpack: https://github.com/cloudfoundry/ruby-buildpack#v1.6.32
   command: bundle exec rake cf:on_first_instance db:migrate && bundle exec rails s -p $PORT

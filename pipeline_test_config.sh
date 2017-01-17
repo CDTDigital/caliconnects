@@ -8,7 +8,7 @@ curl -sSL https://get.rvm.io | bash -s stable
 
 source /home/pipeline/.rvm/scripts/rvm
 
-rvm install 2.4.0
+rvm install 2.3.3
 
 RAILS_ENV="${RAILS_ENV:-test}"
 export RAILS_ENV
