@@ -3,9 +3,11 @@ rvm:
 - 2.3.3
 script:
   - bundle exec rake db:setup
-  - bundle exec rake rspec
+  - bundle exec rspec
 cache: bundler
 services:
   - postgresql
 addons:
   postgresql: "9.6"
+before_script:
+  - psql -c 'create database rails-starter_test;' -U postgres
