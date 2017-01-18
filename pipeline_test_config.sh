@@ -2,6 +2,10 @@
 
 sudo apt-get update
 
+sudo apt-get --yes --force-yes install libgmp3-dev
+
+sudo apt-get --force-yes --yes install libpq-dev
+
 command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
 
 curl -sSL https://get.rvm.io | bash -s stable
