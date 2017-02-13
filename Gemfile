@@ -21,6 +21,7 @@ gem 'geoservices'
 
 # Use HTTParty for HTTP calls
 gem 'httparty'
+gem 'crack'
 
 group :development, :test, :ci do
   gem 'capybara'

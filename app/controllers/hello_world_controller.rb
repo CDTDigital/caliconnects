@@ -6,12 +6,14 @@ class HelloWorldController < ApplicationController
       quake["properties"]["place"].downcase.include? "california"
     end
 
-    @fires = RSS::Parser.parse('https://rmgsc.cr.usgs.gov/GeoMAC/DynContent/georss/nifc_large_firesW3C.xml', false).items
+    @fires = RSS::Parser.parse('http://cdfdata.fire.ca.gov/incidents/rss.xml', false).items
 
     @rivers = RSS::Parser.parse('http://water.weather.gov/ahps2/rss/alert/ca.rss', false).items
 
     @tsunami = RSS::Parser.parse('http://ptwc.weather.gov/feeds/ptwc_rss_pacific.xml', false).items
 
-    @weather = RSS::Parser.parse('https://alerts.weather.gov/cap/ca.php?x=0', false).items
+    @weather = RSS::Parser.parse('https://alerts.weather.gov/cap/ca.php?x=0', false).items.map do |item|
+      Crack::XML.parse(item.to_s)
+    end
   end
 end
