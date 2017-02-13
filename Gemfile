@@ -11,6 +11,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'newrelic_rpm'
+gem 'geoservices'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -19,7 +20,7 @@ gem 'newrelic_rpm'
 # gem 'devise'
 
 # Use HTTParty for HTTP calls
-# gem 'httparty'
+gem 'httparty'
 
 group :development, :test, :ci do
   gem 'capybara'

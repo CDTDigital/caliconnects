@@ -1,1 +1,43 @@
 hello world! 💜
+
+<h1>WEATHER</h1>
+
+<ul>
+  <% @weather.each do |weather| %>
+      <li><%= weather %></li>
+  <% end %>
+</ul>
+
+<h1>TSUNAMIS</h1>
+
+<ul>
+  <% @tsunami.each do |tsunami| %>
+      <li><%= tsunami.as_json %></li>
+  <% end %>
+</ul>
+
+
+<h1>RIVERS</h1>
+
+<ul>
+  <% @rivers[0..4].each do |river| %>
+      <li><%= river.as_json %></li>
+  <% end %>
+</ul>
+
+<h1>FIRES</h1>
+
+<ul>
+  <% @fires.each do |fire| %>
+      <li><%= fire.as_json %></li>
+  <% end %>
+</ul>
+
+<h1>EARTHQUAKES</h1>
+
+<ul>
+  <% @earthquakes.each do |quake| %>
+      <li><%= quake %></li>
+  <% end %>
+</ul>
+
