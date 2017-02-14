@@ -3,11 +3,14 @@
   <head>
     <title>Shiny Fawn</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag "application", media: 'all' %>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.2/esri/css/main.css">
+    <script src="https://js.arcgis.com/4.2/"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <%= yield %>    
   </body>
 </html>

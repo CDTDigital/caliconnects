@@ -1,1 +1,6 @@
 // sprocket requires have been removed, include additional css files using sass's @require below this line
+
+#earthquakes, #fires, #rivers, #hazards, #tsunami {
+  height: 400px;
+  width: 600px;
+}
