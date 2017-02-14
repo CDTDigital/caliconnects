@@ -4,6 +4,8 @@ describe "campaign" do
       visit admin_campaign_index_path
 
       click_on 'create campaign'
+
+      expect(page).to have_content Time.now.strftime("%A, %d %b %Y %H:%M %p")
     end
   end
 end

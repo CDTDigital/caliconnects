@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/maps" => "maps#index"
 
   namespace :admin do
-    resources :campaign, only: [:index]
+    resources :campaign, only: [:index, :create]
   end
 
 end
