@@ -27,9 +27,12 @@ $(document).ready(function(){
 
       layers.forEach(function(layer){
 
+        var key = Object.keys(layer)[0];
+        var value = layer[key];
+
         var map = new Map({
           basemap: "streets-relief-vector",
-          layers: Object.values(layer)
+          layers: [value]
         });
 
         var view = new MapView({
@@ -40,7 +43,7 @@ $(document).ready(function(){
         }).then(function(){
           // console.log("success");
         }, function(error){
-          console.log(error);
+          // console.log("error:" error);
         });
 
       });
