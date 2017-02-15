@@ -1,4 +1,4 @@
-class Admin::CampaignController < ApplicationController
+class Admin::CampaignsController < ApplicationController
   def index
     @campaigns = Campaign.all.order(:updated_at)
   end
@@ -6,6 +6,6 @@ class Admin::CampaignController < ApplicationController
   def create
     Campaign.create(date: Time.now.to_i)
 
-    redirect_to :admin_campaign_index
+    redirect_to admin_campaigns_path
   end
 end

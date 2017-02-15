@@ -1,0 +1,4 @@
+<%= form_for [:admin, @campaign, @alert] do |f| %>
+    <%= f.text_field :description %>
+    <%= f.submit "create alert" %>
+<% end %>
