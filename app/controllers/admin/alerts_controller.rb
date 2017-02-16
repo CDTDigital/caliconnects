@@ -5,7 +5,16 @@ class Admin::AlertsController < ApplicationController
   end
 
   def create
-    Alert.create(@campaign)
+    campaign = Campaign.find(params[:campaign_id])
+
+    Alert.create(alert_params.merge(campaign_id: campaign.id))
+
     redirect_to admin_campaigns_path, notice: "Alert Created"
+  end
+
+  private
+
+  def alert_params
+    params.require(:alert).permit(:description)
   end
 end

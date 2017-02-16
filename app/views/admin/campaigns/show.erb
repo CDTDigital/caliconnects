@@ -1,3 +1,11 @@
-<% @alerts.each do |alert| %>
-    <%= alert.description %>
-<% end %>
+<h1><%= @campaign.formatted_date %></h1>
+
+<h2>Alerts:</h2>
+
+<ul>
+    <% @campaign.alerts.each do |alert| %>
+        <li>
+          <%= alert.description %>
+        </li>
+    <% end %>
+</ul>
