@@ -5,6 +5,7 @@ class Admin::AlertsController < ApplicationController
   end
 
   def create
+    Alert.create(@campaign)
     redirect_to admin_campaigns_path, notice: "Alert Created"
   end
 end

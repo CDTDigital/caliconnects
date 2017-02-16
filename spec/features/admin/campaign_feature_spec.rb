@@ -9,6 +9,25 @@ describe "campaign" do
     end
   end
 
+  context "show" do
+    it "lets the admin view details for a campaign" do
+      campaign = create(:campaign)
+
+      visit admin_campaigns_path
+
+      click_on "create alert"
+
+      fill_in :alert_description, with: "earthquake warning"
+
+      click_on "create alert"
+
+      click_on "show"
+
+      expect(current_path).to eq admin_campaign_path(campaign)
+      expect(page).to have_content "earthquake warning"
+    end
+  end
+
   context "managing alerts" do
     it "admin can create an alert for a campaign" do
       create(:campaign)
