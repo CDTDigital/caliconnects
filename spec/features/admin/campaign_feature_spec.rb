@@ -8,10 +8,11 @@ describe "campaign" do
       expect(page).to have_content "Campaign Created"
       expect(page).to have_content Time.now.strftime("%A, %d %b %Y %H:%M %p")
     end
+  end
 
   context "show" do
-    let!(:campaign) {create(:campaign)}
-    let!(:alert) {create(:alert, campaign: campaign)}
+    let!(:campaign) { create(:campaign) }
+    let!(:alert) { create(:alert, campaign: campaign) }
 
     it "lets the admin view details for a campaign" do
       visit admin_campaigns_path
@@ -24,7 +25,7 @@ describe "campaign" do
   end
 
   context "index" do
-    let!(:campaign) {create(:campaign)}
+    let!(:campaign) { create(:campaign) }
 
     it "admin can create an alert for a campaign" do
       visit admin_campaigns_path
