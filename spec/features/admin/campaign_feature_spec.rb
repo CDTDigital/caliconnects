@@ -3,10 +3,13 @@ describe "campaign" do
     it "lets the admin create a campaign" do
       visit admin_campaigns_path
 
+      select "earthquake", from: :campaign_category
+
       click_on 'create campaign'
 
       expect(page).to have_content "Campaign Created"
       expect(page).to have_content Time.now.strftime("%A, %d %b %Y %H:%M %p")
+      expect(page).to have_content "Earthquake"
     end
   end
 

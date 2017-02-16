@@ -1,10 +1,15 @@
-<%= button_to "create campaign", admin_campaigns_path, method: :post %>
+<%= form_for [:admin, Campaign.new] do |f| %>
+  <%= f.select :category, options: Campaign.categories %>
+
+  <%= f.submit "create campaign" %>
+<% end %>
 
 <ul>
   <% @campaigns.each do |campaign| %>
-      <li><%= campaign.formatted_date %>
-        <%= button_to "create alert", new_admin_campaign_alert_path(campaign.id), method: :get %>
-        <%= button_to "show", admin_campaign_path(campaign.id), method: :get %>
-      </li>
+    <li>
+      <%= campaign.category.capitalize + ", " + campaign.formatted_date %>
+      <%= button_to "create alert", new_admin_campaign_alert_path(campaign.id), method: :get %>
+      <%= button_to "show", admin_campaign_path(campaign.id), method: :get %>
+    </li>
   <% end %>
 </ul>
