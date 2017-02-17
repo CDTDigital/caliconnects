@@ -9,7 +9,7 @@ class Admin::AlertsController < ApplicationController
 
     Alert.create(alert_params.merge(campaign_id: campaign.id))
 
-    redirect_to admin_campaigns_path, notice: "Alert Created"
+    redirect_to admin_campaign_path(campaign), notice: "Alert Created"
   end
 
   private

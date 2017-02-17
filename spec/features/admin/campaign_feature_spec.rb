@@ -40,6 +40,9 @@ describe "campaign" do
       click_on "create alert"
 
       expect(page).to have_content "Alert Created"
+      expect(page).to have_content "tsunami warning"
+
+      expect(current_path).to eq admin_campaign_path(campaign)
     end
   end
 end
