@@ -1,6 +1,6 @@
 class Admin::CampaignsController < ApplicationController
   def index
-    @campaigns = Campaign.all.order(:updated_at)
+    @campaigns = Campaign.all.where(archived: false).order(:updated_at)
   end
 
   def create
@@ -13,6 +13,12 @@ class Admin::CampaignsController < ApplicationController
 
   def show
     @campaign = Campaign.find(params[:id])
+  end
+
+  def destroy
+    @campaign = Campaign.find(params[:id]).update(archived: true)
+
+    redirect_to admin_campaigns_path, notice: "Campaign Archived"
   end
 
   private

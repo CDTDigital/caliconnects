@@ -10,6 +10,7 @@
       <%= campaign.category.capitalize + ", " + campaign.formatted_date %>
       <%= button_to "create alert", new_admin_campaign_alert_path(campaign.id), method: :get %>
       <%= button_to "show", admin_campaign_path(campaign.id), method: :get %>
+      <%= button_to "end campaign", admin_campaign_path(campaign.id), method: :delete %>
     </li>
   <% end %>
 </ul>
