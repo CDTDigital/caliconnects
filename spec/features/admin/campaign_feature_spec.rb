@@ -7,9 +7,13 @@ describe "campaign" do
 
       click_on 'create campaign'
 
+      campaign = Campaign.last
+
       expect(page).to have_content "Campaign Created"
       expect(page).to have_content Time.now.strftime("%A, %d %b %Y %H:%M %p")
       expect(page).to have_content "Earthquake"
+
+      expect(current_path).to eq new_admin_campaign_alert_path(campaign)
     end
   end
 

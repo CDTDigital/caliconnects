@@ -4,11 +4,11 @@ class Admin::CampaignsController < ApplicationController
   end
 
   def create
-    Campaign.create(
-        campaign_params.merge(date: Time.now.to_i)
+    campaign = Campaign.create(
+      campaign_params.merge(date: Time.now.to_i)
     )
 
-    redirect_to admin_campaigns_path, notice: "Campaign Created"
+    redirect_to new_admin_campaign_alert_path(campaign), notice: "Campaign Created"
   end
 
   def show
