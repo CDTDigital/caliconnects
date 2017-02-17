@@ -29,6 +29,15 @@ describe "campaign" do
       expect(current_path).to eq admin_campaign_path(campaign)
       expect(page).to have_content alert.description
     end
+
+    it "admin can end campaigns" do
+      visit admin_campaign_path(campaign)
+
+      click_button "end campaign"
+
+      expect(page).to_not have_content campaign.formatted_date
+      expect(page).to have_content "Campaign Archived"
+    end
   end
 
   context "index" do

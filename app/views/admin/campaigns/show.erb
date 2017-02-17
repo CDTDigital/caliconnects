@@ -1,5 +1,7 @@
 <h1><%= @campaign.formatted_date %></h1>
 
+<%= button_to "end campaign", admin_campaign_path(@campaign.id), method: :delete %>
+
 <h2>Alerts:</h2>
 
 <ul>
