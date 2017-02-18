@@ -35,7 +35,6 @@ describe "campaign" do
 
       click_button "end campaign"
 
-      expect(page).to_not have_content campaign.formatted_date
       expect(page).to have_content "Campaign Archived"
     end
   end
@@ -63,7 +62,14 @@ describe "campaign" do
 
       click_button "end campaign"
 
-      expect(page).to_not have_content campaign.formatted_date
+      within("#active-campaigns") do
+        expect(page).to_not have_content campaign.formatted_date
+      end
+
+      within("#archived-campaigns") do
+        expect(page).to have_content campaign.formatted_date
+      end
+
       expect(page).to have_content "Campaign Archived"
     end
   end

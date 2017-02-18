@@ -1,6 +1,6 @@
 class Admin::CampaignsController < ApplicationController
   def index
-    @campaigns = Campaign.all.where(archived: false).order(:updated_at)
+    @campaigns = Campaign.all.order(:updated_at)
   end
 
   def create
