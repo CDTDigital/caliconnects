@@ -28,6 +28,7 @@ describe "campaign" do
 
       expect(current_path).to eq admin_campaign_path(campaign)
       expect(page).to have_content alert.description
+      expect(page).to have_content alert.severity
     end
 
     it "admin can end campaigns" do
@@ -48,6 +49,8 @@ describe "campaign" do
       click_on "create alert"
 
       fill_in :alert_description, with: "tsunami warning"
+
+      choose :alert_severity_voluntary_evacuation
 
       click_on "create alert"
 

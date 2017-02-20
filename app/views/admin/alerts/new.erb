@@ -1,6 +1,19 @@
 <h1>Create Alert for campaign  <%= @campaign.category.capitalize + ", " + @campaign.formatted_date %></h1>
 
 <%= form_for [:admin, @campaign, @alert] do |f| %>
+    <%= f.label :description %>
     <%= f.text_field :description %>
+
+    <fieldset>
+      <legend>Select Severity</legend>
+
+      <% Alert.severities.each do |severity| %>
+          <li>
+            <%= f.label :severity, to_human_readable(severity) %>
+            <%= f.radio_button :severity, severity %>
+          </li>
+      <% end %>
+    </fieldset>
+
     <%= f.submit "create alert" %>
 <% end %>

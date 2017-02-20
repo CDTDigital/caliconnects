@@ -7,7 +7,7 @@
 <ul>
     <% @campaign.alerts.each do |alert| %>
         <li>
-          <%= alert.description %>
+          <%= alert.description + ", " + to_human_readable(alert.severity) %>
         </li>
     <% end %>
 </ul>
