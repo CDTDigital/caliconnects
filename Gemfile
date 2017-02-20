@@ -15,8 +15,7 @@ gem 'newrelic_rpm'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Devise for User Auth
-# gem 'devise'
+gem 'devise'
 
 # Use HTTParty for HTTP calls
 gem 'httparty'

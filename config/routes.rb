@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { sessions: 'users/sessions' }
   root "hello_world#index"
 
   get "/hello_world" => "hello_world#index"
