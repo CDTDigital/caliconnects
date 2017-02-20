@@ -28,7 +28,7 @@ describe "campaign" do
 
       expect(current_path).to eq admin_campaign_path(campaign)
       expect(page).to have_content alert.description
-      expect(page).to have_content alert.severity
+      expect(page).to have_content to_human_readable(alert.severity)
     end
 
     it "admin can end campaigns" do

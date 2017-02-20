@@ -9,6 +9,7 @@ require 'capybara/rails'
 require 'database_cleaner'
 require 'capybara/poltergeist'
 
+include ApplicationHelper
 # require 'shoulda/matchers'
 
 # Checks for pending migration and applies them before tests are run.
