@@ -1,4 +1,16 @@
 class Admin::CampaignsController < ApplicationController
+
+  include Swagger::Blocks
+
+  swagger_path '/campaigns' do
+   operation :get do
+     key :description, 'campaigns'
+     response 200 do
+       key :description, 'returns a list of all campaigns'
+     end
+   end
+ end
+
   def index
     @campaigns = Campaign.all.order(:updated_at)
   end

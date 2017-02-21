@@ -11,5 +11,7 @@ Rails.application.routes.draw do
       resources :alerts, only: [:new, :create]
     end
   end
-end
 
+  resources :apidocs, only: [:index]
+
+end
