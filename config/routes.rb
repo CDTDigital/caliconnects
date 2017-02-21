@@ -3,7 +3,12 @@ Rails.application.routes.draw do
 
   root "hello_world#index"
 
-  get "/hello_world" => "hello_world#index"
+  get "disaster_events/earthquakes" => "disaster_events#earthquakes"
+  get "disaster_events/fires" => "disaster_events#fires"
+  get "disaster_events/rivers" => "disaster_events#rivers"
+  get "disaster_events/tsunami" => "disaster_events#tsunami"
+  get "disaster_events/weather" => "disaster_events#weather"
+
   get "/maps" => "maps#index"
 
   namespace :admin do
