@@ -8,9 +8,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super do |user|
+      if user.persisted?
+        user.addresses.create(address_params)
+      end
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -57,4 +61,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+
+  def address_params
+    params.permit(:state, :zipcode, :city).merge(street: params[:street] + " " + params[:route])
+  end
 end

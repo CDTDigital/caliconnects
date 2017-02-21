@@ -18,5 +18,7 @@ describe "user sign up" do
     fill_in :user_phone, with: "4155555555"
 
     # click_button "Next"
+
+    fill_in :address, with: "3 Alley Lane, San Francisco 94105"
   end
 end
