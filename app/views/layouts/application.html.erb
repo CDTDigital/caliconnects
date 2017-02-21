@@ -4,7 +4,7 @@
     <title>Shiny Fawn</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag "application", media: 'all' %>    
+    <%= javascript_include_tag "application", media: 'all' %>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://js.arcgis.com/4.2/esri/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/2.2.10/css/screen.css" />
@@ -12,6 +12,15 @@
   </head>
 
   <body>
+    <div class="navbar">
+      <div class="navbar__logo">
+        LOGO
+      </div>
+      <div class="navbar__title">
+        Emergency Alert System
+      </div>
+    </div>
+
     <div><%= flash[:alert] %></div>
     <div><%= flash[:notice] %></div>
   <%= yield %>
