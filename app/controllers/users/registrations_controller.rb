@@ -12,6 +12,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super do |user|
       if user.persisted?
         user.addresses.create(address_params)
+
+        SmsService.new.send_message(user.phone, "Thanks for registering for the Shiny Fawn service!")
       end
     end
   end
@@ -63,6 +65,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   private
+
+  def sign_up_params
+    super.merge(phone: params[:user][:phone])
+  end
 
   def address_params
     params.permit(:state, :zipcode, :city).merge(street: params[:street] + " " + params[:route])
