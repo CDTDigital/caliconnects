@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  root "hello_world#index"
+  root "welcome#index"
 
   get "disaster_events/earthquakes" => "disaster_events#earthquakes"
   get "disaster_events/fires" => "disaster_events#fires"
