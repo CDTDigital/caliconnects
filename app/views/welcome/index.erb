@@ -1,5 +1,4 @@
 <div class="welcome">
-
   <div class="welcome__main-image">
   </div>
 
@@ -15,11 +14,11 @@
     </div>
 
     <div class="welcome__register-button">
-      <button class="welcome__button">Sign Up</button>
+      <%= button_to "Sign Up", new_user_registration_path, method: :get, class: "welcome__button" %>
     </div>
 
     <div class="welcome__login-button">
-      <button class="welcome__button">Login</button>
+      <%= button_to "Login", new_user_session_path, method: :get, class: "welcome__button" %>
     </div>
   </div>
 </div>

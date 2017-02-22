@@ -13,11 +13,13 @@
 
   <body>
     <div class="navbar">
-      <div class="navbar__logo">
-      </div>
-      <div class="navbar__title">
-        Emergency Alert System
-      </div>
+      <%= link_to root_path do %>
+          <div class="navbar__logo">
+          </div>
+          <div class="navbar__title">
+            Emergency Alert System
+          </div>
+      <% end %>
     </div>
 
     <div><%= flash[:alert] %></div>
