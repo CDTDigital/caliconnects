@@ -29,5 +29,14 @@ describe "user sign up" do
     end
 
     fill_in :address, with: "3 Alley Lane, San Francisco 94105"
+
+    click_button "Sign up"
+
+    expect(page).to have_content "check ur phone"
+    expect(current_path).to eq user_confirmation_path
+
+    visit user_success_path
+
+    expect(page).to have_content "thanks 4 registering"
   end
 end

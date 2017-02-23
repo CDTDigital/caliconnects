@@ -29,7 +29,7 @@ describe Users::RegistrationsController do
     it "sends sms to confirm user registration" do
       post :create, params: user_params
 
-      expect(new_sms).to have_received(:send_message).with(user_params[:user][:phone], "Thanks for registering for the Shiny Fawn service!")
+      expect(new_sms).to have_received(:send_message).with(user_params[:user][:phone], "Thanks for registering for the Shiny Fawn service! Click this link to confirm your registration: " + user_success_url)
     end
   end
 end

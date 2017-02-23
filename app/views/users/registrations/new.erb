@@ -181,12 +181,11 @@
         </tr>
       </table>
 
-      <div id="signup-page__next-button" class="signup-page__next-button">Next</div>
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
     </div>
 
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
 <% end %>
 
 <%= render "users/shared/links" %>

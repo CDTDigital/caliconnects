@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-# before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -11,11 +11,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super do |user|
       if user.persisted?
-        user.addresses.create(address_params)
+        user.addresses.create(address_params) if address_params_present?
 
-        SmsService.new.send_message(user.phone, "Thanks for registering for the Shiny Fawn service!")
+        SmsService.new.send_message(user.phone, "Thanks for registering for the Shiny Fawn service! Click this link to confirm your registration: " + user_success_url)
       end
     end
+  end
+
+  def confirmation
+  end
+
+  def success
   end
 
   # GET /resource/edit
@@ -45,18 +51,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
-
-  # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
-
-  # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
   # end
 
   # The path used after sign up for inactive accounts.
@@ -66,11 +62,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
 
-  def sign_up_params
-    super.merge(phone: params[:user][:phone])
-  end
-
   def address_params
     params.permit(:state, :zipcode, :city).merge(street: params[:street] + " " + params[:route])
+  end
+
+  def address_params_present?
+    params[:street] && params[:route] && params[:state] && params[:zipcode] && params[:city]
+  end
+
+  def after_sign_up_path_for(resource)
+    user_confirmation_path
+  end
+
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:phone, :first_name, :last_name])
   end
 end

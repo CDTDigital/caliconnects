@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
+  devise_scope :user do
+    get "/user/confirmation" => "users/registrations#confirmation"
+    get "/user/success" => "users/registrations#success"
+  end
+
   root "welcome#index"
 
   get "disaster_events/earthquakes" => "disaster_events#earthquakes"
@@ -18,5 +23,4 @@ Rails.application.routes.draw do
   end
 
   resources :apidocs, only: [:index]
-
 end
