@@ -23,6 +23,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f}
 Capybara.configure do |config|
   # mess with this value if you're getting excessive capybara timeouts or if you think capybara isn't waiting long enough for your page to load
   # config.default_wait_time = 10
+  config.raise_server_errors = false
 end
 
 Capybara.register_driver :poltergeist do |app|

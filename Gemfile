@@ -14,6 +14,7 @@ gem 'newrelic_rpm'
 gem 'swagger-blocks'
 gem 'swagger-ui_rails5'
 gem 'twilio-ruby'
+gem 'normalize-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
