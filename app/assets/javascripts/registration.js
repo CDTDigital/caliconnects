@@ -2,7 +2,7 @@ $(document).ready(function(){
     if($("#signup-marker")) {
         window.location = "#1";
 
-        var moveToPreviousPage = function() {
+        var showUrlPage = function() {
             var hash = window.location.hash;
             var hashNumber = hash.split("#")[1];
 
@@ -33,9 +33,20 @@ $(document).ready(function(){
             }
         };
 
+        var moveToPreviousPage = function() {
+            var visible = $(".signup-page:visible").attr("data-pagenumber");
+            var currPageNumber = Number(visible);
+
+            window.location = "#" + (currPageNumber - 1);
+
+            showUrlPage();
+        };
+
         $(".signup-page__next-button").on("click", moveToNextPage);
 
-        $(window).bind('hashchange', moveToPreviousPage);
+        $(".signup-page__back-button").on("click", moveToPreviousPage);
+
+        $(window).bind('hashchange', showUrlPage);
 
         $("input").keypress(clickTheNextButton);
     }
