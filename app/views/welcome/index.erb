@@ -3,9 +3,6 @@
   </div>
 
   <div class="welcome__container">
-    <div class="welcome__welcome-title">
-    </div>
-
     <div class="welcome__message">
       <div class="welcome__message-image"></div>
       <div class="welcome__message-safe">We want you to stay safe!</div>
@@ -13,12 +10,13 @@
       <div class="welcome__message-context">Our new system can now send location based alerts. This means if you get an alert, the system has intelligently determined that you NEED the details to stay safe, because you are within the affected area. This also means you won't receive alerts that don't affect you.</div>
     </div>
 
-    <div class="welcome__register-button">
-      <%= button_to "Sign Up", new_user_registration_path, method: :get, class: "usa-button-primary" %>
+    <div class="welcome__buttons">
+      <%= button_to "Sign Up", new_user_registration_path, method: :get, class: "usa-button-primary" %>    
     </div>
 
-    <div class="welcome__login-button">
+    <div class="welcome__buttons">
       <%= button_to "Login", new_user_session_path, method: :get, class: "usa-button-primary" %>
     </div>
+
   </div>
 </div>

@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 ruby "2.3.3"
 
-gem 'bourbon'
-gem 'neat', '~> 1.8'
+gem 'bourbon', '~> 4.2', '>= 4.2.6'
+gem 'neat', '~> 1.8.0'
 gem 'rails', '~> 5.0.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'

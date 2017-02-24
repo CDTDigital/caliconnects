@@ -1,15 +1,12 @@
 // sprocket requires have been removed, include additional css files using sass's @import below this line
 @import "neat";
-@import '../uswds-0.14.0/stylesheets/uswds';
+@import "../uswds-0.14.0/stylesheets/uswds";
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
 @import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i');
 
-$mobile: new-breakpoint(max-width 480px);
-$desktop: new-breakpoint(max-width 850px);
-
-// $small-screen:  481px !default;
-// $medium-screen: 600px !default;
-// $large-screen:  1201px !default;
+$mobile: 480px;
+$mobile-b: new-breakpoint(max-width 480px);
+$desktop: 850px;
 
 #earthquakes, #fires, #rivers, #hazards, #tsunami {
   height: 400px;
@@ -57,7 +54,7 @@ body {
     color: $color-primary;
   }
 
-  @include media($mobile){
+  @include media($mobile-b){
     .navbar__logo, .navbar__title {
       @include span-columns(12);
     }
@@ -86,20 +83,25 @@ body {
 .welcome {
 }
 
-.welcome__main-image {
-  height: 272px;
-  background: image_url('welcome_image.png') no-repeat center;
-  background-size: cover;
-  max-width: 100%;
+@media screen and (min-width:$desktop){
+  .welcome__main-image {
+    height: 272px;
+    background: image_url('welcome_image.png') no-repeat center;
+    background-size: cover;
+    max-width: 100%;
+  }
 }
 
-.welcome__container {
-  width: 20%;
-  margin-left: 40%;
-  margin-right: 40%;
+@media screen and (min-width: $desktop){
+  .welcome__container {
+      @include outer-container(20%);
+  }
 }
 
-.welcome__welcome-title {
+@media screen and (max-width: $mobile){
+  .welcome__container {
+      @include outer-container(80%);
+  }
 }
 
 .welcome__message {
@@ -108,6 +110,8 @@ body {
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .welcome__message-image {
@@ -134,27 +138,11 @@ body {
   font-weight: bold;
   padding-top: 3px;
 }
+
 .welcome__message-context {
-  padding-bottom: 40px;
 }
 
-.welcome__button {
-  border-radius: 3px;
-  background-color: #0872b9;
-  height: 25px;
-  width: 91px;
-  color: #fffffe;
-  margin-top: 10px;
-  border: none;
-  font-weight: bold
-}
-
-.welcome__register-button {
-  display: flex;
-  justify-content: center;
-}
-
-.welcome__login-button {
+.welcome__buttons {
   display: flex;
   justify-content: center;
 }
