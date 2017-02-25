@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     if($("#signup-marker")) {
         window.location = "#1";
 
@@ -24,12 +25,14 @@ $(document).ready(function(){
 
             $(currPageSelector).hide();
             $(nextPageSelector).show();
+
+            $(new_user).enableClientSideValidations();
         };
 
         var clickTheNextButton = function (e) {
             if (e.which == 13) {
                 $("#signup-page__next-button").trigger("click");
-                return false;
+                return true;
             }
         };
 

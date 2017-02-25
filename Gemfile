@@ -15,6 +15,8 @@ gem 'swagger-blocks'
 gem 'swagger-ui_rails5'
 gem 'twilio-ruby'
 gem 'normalize-rails'
+gem 'jquery-ui-rails'
+gem 'client_side_validations'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

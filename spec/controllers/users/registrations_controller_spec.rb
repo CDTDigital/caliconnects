@@ -5,7 +5,10 @@ describe Users::RegistrationsController do
     let(:new_sms) { double }
     let(:user_params) {
                         { user:
-                              { email: "test@example.com",
+                              {
+                                first_name: "jack",
+                                last_name: "jill",
+                                email: "test@example.com",
                                 password: "jillsecret",
                                 phone: "+15005550006" },
                           street: "425",

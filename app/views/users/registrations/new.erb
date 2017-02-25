@@ -111,7 +111,7 @@
     }
 </script>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), validate: true) do |f| %>
     <%= devise_error_messages! %>
 
     <div class="signup-page" id="signup-page-1" data-pagenumber="1">
@@ -129,6 +129,7 @@
     </div>
 
     <div class="signup-page" id="signup-page-2" data-pagenumber="2">
+
       <%= f.label :email %><br/>
       <%= f.text_field :email %>
 
