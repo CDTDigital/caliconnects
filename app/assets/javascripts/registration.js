@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    if($("#signup-marker")) {
+    if($("#signup-marker").length > 0) {
         window.location = "#1";
 
         var showUrlPage = function() {

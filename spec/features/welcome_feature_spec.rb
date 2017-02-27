@@ -22,5 +22,11 @@ describe "welcome" do
 
       expect(current_path).to eq new_user_session_path
     end
+
+    it "has a preparedness page" do
+      visit preparedness_path
+
+      expect(page).to have_content("be prepared!")
+    end
   end
 end
