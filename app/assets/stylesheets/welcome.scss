@@ -1,0 +1,72 @@
+.welcome {
+}
+
+@media screen and (min-width: $small-min) and (max-width: $small-max){
+  .welcome__container {
+      @include outer-container(80%);
+  }
+}
+
+@media screen and (min-width: $medium-min) and (max-width: $medium-max){
+  .welcome__container {
+      @include outer-container(50%);
+  }
+}
+
+@media screen and (min-width: $large-min){
+  .welcome__container {
+      @include outer-container(20%);
+  }
+}
+
+@media screen and (min-width:$large-min){
+  .welcome__main-image {
+    height: 272px;
+    background: image_url('welcome_image.png') no-repeat center;
+    background-size: cover;
+    max-width: 100%;
+  }
+}
+
+.welcome__message {
+  font-family: $font-sans;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.welcome__message-image {
+  height: 100px;
+  margin-top: 10px;
+  background: image_url('we_heart.svg') no-repeat center;
+  background-size: contain;
+  max-width: 100%;
+}
+
+.welcome__message-safe {
+  color: $color-primary;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  padding-top: 30px;
+  font-family: $font-serif;
+}
+
+.welcome__message-alert {
+  font-weight: bold;
+  padding-top: 3px;
+}
+
+.welcome__message-context {
+}
+
+.welcome__buttons {
+  display: flex;
+  justify-content: center;
+}

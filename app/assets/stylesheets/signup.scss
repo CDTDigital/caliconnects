@@ -1,0 +1,116 @@
+.signup-page {
+  display: none;
+}
+
+#signup-page-1 {
+  display: block;
+}
+
+@media screen and (min-width: 320px) and (max-width: $small-max){
+  .signup-page__container {
+      @include outer-container(80%);
+  }
+}
+
+@media screen and (min-width: $medium-min) and (max-width: $medium-max){
+  .signup-page__container {
+      @include outer-container(50%);
+  }
+}
+
+@media screen and (min-width: $large-min){
+  .signup-page__container {
+      @include outer-container(20%);
+  }
+}
+
+.signup-page__title {
+  color: $color-primary;
+  font-family: $font-serif;
+  font-size: 2.5em;
+  font-weight: 500;
+  height: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.signup-page__details {
+  font-family: $font-sans;
+  font-size: .9em;
+  color: $color-gray-light;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.signup-page__label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup-page__label-title {
+  margin-top: 0;
+  font-family: $font-sans;
+  font-size: .8em;
+}
+
+.signup-page__box-area {
+  margin-bottom: 30px;
+}
+
+.signup-page__box-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup-page__label-required {
+  font-family: $font-sans;
+  font-size: .8em;
+  font-style: italic;
+}
+
+.signup-page__input {
+  width: 100%;
+  max-width: 100%;
+}
+
+.signup-page__back-button {
+  margin-left: 0px;
+  margin-right: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.signup-page__next-button {
+  margin-right: 0px;
+  margin-left: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.signup-page__icon-name {
+}
+.signup-page__icon-password {
+}
+.signup-page__icon-email {
+}
+.signup-page__icon-number {
+}
+.signup-page__icon-home-address {
+}
+.signup-page__icon-safe-address {
+}
+.signup-page__icon-sms {
+}
+
+//================================================ OVERRIDES
+
+// Client-side Errors
+label.message {
+  margin-top: 0;
+  font-size: .8em;
+  font-style: italic;
+  border-left: 2px solid red;
+  color: red;
+  padding-left: 5px;
+  margin-bottom: 10px;
+}
