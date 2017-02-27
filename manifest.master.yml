@@ -6,4 +6,4 @@ applications:
   memory: 256MB
   instances: 3
   buildpack: https://github.com/cloudfoundry/ruby-buildpack#v1.6.32
-  command: bundle exec rake cf:on_first_instance db:migrate && bundle exec rails s -p $PORT
+  command: bundle exec rake cf:on_first_instance db:migrate db:seed && bundle exec rails s -p $PORT
