@@ -11,9 +11,11 @@ class Admin::AlertsController < ApplicationController
 
     redirect_to admin_campaign_path(campaign), notice: "Alert Created"
 
+    sms_body = @alert.description + " click here for more info: " + preparedness_url + "?id=" + Alert.last.id.to_s
+
     User.all.each do |user|
       if user.phone
-        SmsService.new.send_message(user.phone, @alert.description)
+        SmsService.new.send_message(user.phone, sms_body)
       end
     end
   end

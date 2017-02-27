@@ -33,7 +33,9 @@ describe Admin::AlertsController do
 
       post :create, params: alert_params
 
-      expect(new_sms).to have_received(:send_message).with(user.phone, alert_description)
+      expected_sms_body = alert_description + " click here for more info: " + preparedness_url + "?id=" + Alert.last.id.to_s
+
+      expect(new_sms).to have_received(:send_message).with(user.phone, expected_sms_body)
     end
   end
 end
