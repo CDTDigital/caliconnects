@@ -7,9 +7,14 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super do |user|
+      if user.admin
+        redirect_to admin_campaigns_path
+        return
+      end
+    end
+  end
 
   # DELETE /resource/sign_out
   # def destroy

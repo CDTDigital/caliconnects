@@ -1,5 +1,5 @@
 class Admin::CampaignsController < ApplicationController
-
+  before_action :verify_is_admin
   include Swagger::Blocks
 
   swagger_path '/campaigns' do
