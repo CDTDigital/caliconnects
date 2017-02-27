@@ -4,9 +4,12 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
 @import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i');
 
-$mobile: 480px;
-$mobile-b: new-breakpoint(max-width 480px);
-$desktop: 850px;
+$small-min: 320px;
+$small-max: 480px;
+$small-max-b: new-breakpoint(max-width 480px);
+$medium-min: 481px;
+$medium-max: 1224px;
+$large-min: 1224px;
 
 #earthquakes, #fires, #rivers, #hazards, #tsunami {
   height: 400px;
@@ -54,7 +57,7 @@ body {
     color: $color-primary;
   }
 
-  @include media($mobile-b){
+  @include media($small-max-b){
     .navbar__logo, .navbar__title {
       @include span-columns(12);
     }
@@ -62,45 +65,36 @@ body {
 
 }
 
-#signup-page__next-button {
-  background: turquoise;
-  width: 40px;
-}
 
-#signup-page__back-button {
-  background: turquoise;
-  width: 40px;
-}
-
-.signup-page {
-  display: none;
-}
-
-#signup-page-1 {
-  display: block;
-}
+//================================================ WELCOME
 
 .welcome {
 }
 
-@media screen and (min-width:$desktop){
-  .welcome__main-image {
-    height: 272px;
-    background: image_url('welcome_image.png') no-repeat center;
-    background-size: cover;
-    max-width: 100%;
+@media screen and (min-width: $small-min) and (max-width: $small-max){
+  .welcome__container {
+      @include outer-container(80%);
   }
 }
 
-@media screen and (min-width: $desktop){
+@media screen and (min-width: $medium-min) and (max-width: $medium-max){
+  .welcome__container {
+      @include outer-container(50%);
+  }
+}
+
+@media screen and (min-width: $large-min){
   .welcome__container {
       @include outer-container(20%);
   }
 }
 
-@media screen and (max-width: $mobile){
-  .welcome__container {
-      @include outer-container(80%);
+@media screen and (min-width:$large-min){
+  .welcome__main-image {
+    height: 272px;
+    background: image_url('welcome_image.png') no-repeat center;
+    background-size: cover;
+    max-width: 100%;
   }
 }
 
@@ -145,4 +139,110 @@ body {
 .welcome__buttons {
   display: flex;
   justify-content: center;
+}
+
+//================================================ REGISTRATION
+
+.signup-page {
+  display: none;
+}
+
+#signup-page-1 {
+  display: block;
+}
+
+
+@media screen and (min-width: 320px) and (max-width: $small-max){
+  .signup-page__container {
+      @include outer-container(80%);
+  }
+}
+
+@media screen and (min-width: $medium-min) and (max-width: $medium-max){
+  .signup-page__container {
+      @include outer-container(50%);
+  }
+}
+
+@media screen and (min-width: $large-min){
+  .signup-page__container {
+      @include outer-container(20%);
+  }
+}
+
+
+.signup-page__title {
+  color: $color-primary;
+  font-family: $font-serif;
+  font-size: 2.5em;
+  font-weight: 500;
+  height: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.signup-page__details {
+  font-family: $font-sans;
+  font-size: .9em;
+  color: $color-gray-light;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.signup-page__label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup-page__label-title {
+  margin-top: 0;
+  font-family: $font-sans;
+  font-size: .8em;
+}
+
+.signup-page__box-area {
+  margin-bottom: 30px;
+}
+
+.signup-page__box-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup-page__label-required {
+  font-family: $font-sans;
+  font-size: .8em;
+  font-style: italic;
+}
+
+.signup-page__input {
+  width: 100%;
+  max-width: 100%;
+}
+
+.signup-page__back-button {
+  margin-left: 0px;
+  margin-right: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.signup-page__next-button {
+  margin-right: 0px;
+  margin-left: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+//================================================ OVERRIDES
+
+// Client-side Errors
+label.message {
+  margin-top: 0;
+  font-size: .8em;
+  font-style: italic;
+  border-left: 2px solid red;
+  color: red;
+  padding-left: 5px;
+  margin-bottom: 10px;
 }

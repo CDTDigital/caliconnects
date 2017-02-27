@@ -9,14 +9,14 @@ describe "user sign up" do
       find("#signup-page__next-button").click
     end
 
-    fill_in :user_email, with: "brenda@example.com"
+    fill_in :user_password, with: "jillsecret"
+    fill_in :user_password_confirmation, with: "jillsecret"
 
     within "#signup-page-2" do
       find("#signup-page__next-button").click
     end
 
-    fill_in :user_password, with: "jillsecret"
-    fill_in :user_password_confirmation, with: "jillsecret"
+    fill_in :user_email, with: "brenda@example.com"
 
     within "#signup-page-3" do
       find("#signup-page__next-button").click
