@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     get "/weather" => "event_maps#weather"
     get "/tsunami" => "event_maps#tsunami"
 
-    resources :campaigns, only: [:index, :create, :show, :destroy] do
+    resources :campaigns, except: [:edit, :update] do
       resources :alerts, only: [:new, :create]
     end
   end

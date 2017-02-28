@@ -13,6 +13,9 @@ class Admin::CampaignsController < ApplicationController
 
   def index
     @campaigns = Campaign.all.order(:updated_at)
+  end
+
+  def new
     @campaign = Campaign.new
     @campaign.alerts.build
   end

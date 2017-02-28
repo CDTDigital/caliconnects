@@ -1,26 +1,6 @@
 <%= render partial: 'admin/shared/admin_sidebar' %>
 
-<%= form_for [:admin, @campaign] do |f| %>
-    <%= f.text_field :name %>
-
-    <%= f.fields_for :alerts do |alerts_form| %>
-        <%= alerts_form.label :description %>
-        <%= alerts_form.text_field :description %>
-
-        <fieldset>
-          <legend>Select Severity</legend>
-
-          <% Alert.severities.each do |severity| %>
-              <li>
-                <%= alerts_form.label :severity, to_human_readable(severity) %>
-                <%= alerts_form.radio_button :severity, severity %>
-              </li>
-          <% end %>
-        </fieldset>
-    <% end %>
-
-    <%= f.submit "Send Notification" %>
-<% end %>
+<%= button_to "Create New Campaign", new_admin_campaign_path, method: :get %>
 
 <h2>Active Campaigns</h2>
 

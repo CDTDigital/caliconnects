@@ -1,0 +1,11 @@
+<%= render partial: 'admin/shared/admin_sidebar' %>
+
+<%= form_for [:admin, @campaign] do |f| %>
+    <%= f.text_field :name %>
+
+    <%= f.fields_for :alerts do |alerts_form| %>
+        <%= render partial: 'admin/shared/alert_form', :locals => {:form => alerts_form} %>
+    <% end %>
+
+    <%= f.submit "Send Notification" %>
+<% end %>

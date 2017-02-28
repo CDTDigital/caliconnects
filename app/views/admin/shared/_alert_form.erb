@@ -1,0 +1,13 @@
+<%= form.label :description %>
+<%= form.text_field :description %>
+
+<fieldset>
+  <legend>Select Severity</legend>
+
+  <% Alert.severities.each do |severity| %>
+      <li>
+        <%= form.label :severity, to_human_readable(severity) %>
+        <%= form.radio_button :severity, severity %>
+      </li>
+  <% end %>
+</fieldset>

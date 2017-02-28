@@ -1,19 +1,7 @@
 <h1>Create Alert for campaign  <%= @campaign.name.capitalize + ", " + @campaign.formatted_date %></h1>
 
 <%= form_for [:admin, @campaign, @alert] do |f| %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= render partial: 'admin/shared/alert_form', :locals => {:form => f} %>
 
-    <fieldset>
-      <legend>Select Severity</legend>
-
-      <% Alert.severities.each do |severity| %>
-          <li>
-            <%= f.label :severity, to_human_readable(severity) %>
-            <%= f.radio_button :severity, severity %>
-          </li>
-      <% end %>
-    </fieldset>
-
-    <%= f.submit "create alert" %>
+    <%= f.submit "Send Notification" %>
 <% end %>

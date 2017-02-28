@@ -4,9 +4,11 @@ describe "campaign" do
     login_as(admin)
   end
 
-  context "create" do
+  context "new" do
     it "lets the admin create a campaign" do
       visit admin_campaigns_path
+
+      click_button "Create New Campaign"
 
       fill_in :campaign_name, with: "blueberry pie"
 
@@ -66,7 +68,7 @@ describe "campaign" do
 
       choose :alert_severity_voluntary_evacuation
 
-      click_on "create alert"
+      click_on "Send Notification"
 
       expect(page).to have_content "Alert Created"
       expect(page).to have_content "tsunami warning"
