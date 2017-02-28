@@ -1,4 +1,7 @@
 describe "campaign" do
+  let(:admin) { create(:user, admin: true) }
+  before :each do login_as(admin) end
+
   context "create" do
     it "lets the admin create a campaign" do
       visit admin_campaigns_path

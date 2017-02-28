@@ -1,4 +1,6 @@
 class Admin::AlertsController < ApplicationController
+  before_action :verify_is_admin
+
   def new
     @campaign = Campaign.find(params[:campaign_id])
     @alert = Alert.new
@@ -14,7 +16,7 @@ class Admin::AlertsController < ApplicationController
     sms_body = @alert.description + " click here for more info: " + preparedness_url + "?id=" + Alert.last.id.to_s
 
     User.all.each do |user|
-      if user.phone
+      if user.phone && !user.admin
         SmsService.new.send_message(user.phone, sms_body)
       end
     end
