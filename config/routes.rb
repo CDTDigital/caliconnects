@@ -19,6 +19,12 @@ Rails.application.routes.draw do
   get "/maps" => "maps#index"
 
   namespace :admin do
+    get "/fires" => "event_maps#fires"
+    get "/earthquakes" => "event_maps#earthquakes"
+    get "/rivers" => "event_maps#rivers"
+    get "/weather" => "event_maps#weather"
+    get "/tsunami" => "event_maps#tsunami"
+
     resources :campaigns, only: [:index, :create, :show, :destroy] do
       resources :alerts, only: [:new, :create]
     end

@@ -1,3 +1,5 @@
+<%= render partial: 'admin/shared/admin_sidebar' %>
+
 <%= form_for [:admin, Campaign.new] do |f| %>
   <%= f.select :category, options: Campaign.categories %>
 
