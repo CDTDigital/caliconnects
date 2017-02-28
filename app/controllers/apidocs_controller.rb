@@ -25,6 +25,8 @@ class ApidocsController < ApplicationController
 
   SWAGGERED_CLASSES = [
     Admin::CampaignsController,
+    AlertsController,
+    Alert,
     self
   ].freeze
 
