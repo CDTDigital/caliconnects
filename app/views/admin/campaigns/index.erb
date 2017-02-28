@@ -1,21 +1,38 @@
 <%= render partial: 'admin/shared/admin_sidebar' %>
 
-<%= form_for [:admin, Campaign.new] do |f| %>
-  <%= f.select :category, options: Campaign.categories %>
+<%= form_for [:admin, @campaign] do |f| %>
+    <%= f.text_field :name %>
 
-  <%= f.submit "create campaign" %>
+    <%= f.fields_for :alerts do |alerts_form| %>
+        <%= alerts_form.label :description %>
+        <%= alerts_form.text_field :description %>
+
+        <fieldset>
+          <legend>Select Severity</legend>
+
+          <% Alert.severities.each do |severity| %>
+              <li>
+                <%= alerts_form.label :severity, to_human_readable(severity) %>
+                <%= alerts_form.radio_button :severity, severity %>
+              </li>
+          <% end %>
+        </fieldset>
+    <% end %>
+
+    <%= f.submit "Send Notification" %>
 <% end %>
 
 <h2>Active Campaigns</h2>
 
 <ul id="active-campaigns">
   <% @campaigns.where(archived: false).each do |campaign| %>
-    <li>
-      <%= campaign.category.capitalize + ", " + campaign.formatted_date %>
-      <%= button_to "create alert", new_admin_campaign_alert_path(campaign.id), method: :get %>
-      <%= button_to "show", admin_campaign_path(campaign.id), method: :get %>
-      <%= button_to "end campaign", admin_campaign_path(campaign.id), method: :delete %>
-    </li>
+      <li>
+        <%= to_human_readable(campaign.alerts.last.severity) unless campaign.alerts.empty? %>
+        <%= campaign.name.capitalize + ", " + campaign.formatted_date %>
+        <%= button_to "create alert", new_admin_campaign_alert_path(campaign.id), method: :get %>
+        <%= button_to "show", admin_campaign_path(campaign.id), method: :get %>
+        <%= button_to "end campaign", admin_campaign_path(campaign.id), method: :delete %>
+      </li>
   <% end %>
 </ul>
 
@@ -24,7 +41,7 @@
 <ul id="archived-campaigns">
   <% @campaigns.where(archived: true).each do |campaign| %>
       <li>
-        <%= campaign.category.capitalize + ", " + campaign.formatted_date %>
+        <%= campaign.name.capitalize + ", " + campaign.formatted_date %>
         <%= button_to "create alert", new_admin_campaign_alert_path(campaign.id), method: :get %>
         <%= button_to "show", admin_campaign_path(campaign.id), method: :get %>
       </li>

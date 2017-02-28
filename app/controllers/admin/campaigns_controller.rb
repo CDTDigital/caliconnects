@@ -13,14 +13,20 @@ class Admin::CampaignsController < ApplicationController
 
   def index
     @campaigns = Campaign.all.order(:updated_at)
+    @campaign = Campaign.new
+    @campaign.alerts.build
   end
 
   def create
-    campaign = Campaign.create(
+    campaign = Campaign.new(
       campaign_params.merge(date: Time.now.to_i)
     )
 
-    redirect_to new_admin_campaign_alert_path(campaign), notice: "Campaign Created"
+    if campaign.save
+      campaign.alerts.create(alert_params)
+
+      redirect_to admin_campaigns_path, notice: "Campaign Created"
+    end
   end
 
   def show
@@ -36,6 +42,12 @@ class Admin::CampaignsController < ApplicationController
   private
 
   def campaign_params
-    params.require(:campaign).permit(:category)
+    params.require(:campaign).permit(:name)
+  end
+
+  def alert_params
+    alert_params = params.dig(:campaign, :alerts)
+
+    alert_params.permit(:severity, :description) if alert_params
   end
 end

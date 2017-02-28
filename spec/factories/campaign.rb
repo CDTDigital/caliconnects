@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :campaign do
     date 1
-    category "fire"
+    name "fire"
   end
 end

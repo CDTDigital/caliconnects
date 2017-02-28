@@ -1,22 +1,33 @@
 describe "campaign" do
   let(:admin) { create(:user, admin: true) }
-  before :each do login_as(admin) end
+  before :each do
+    login_as(admin)
+  end
 
   context "create" do
     it "lets the admin create a campaign" do
       visit admin_campaigns_path
 
-      select "earthquake", from: :campaign_category
+      fill_in :campaign_name, with: "blueberry pie"
 
-      click_on 'create campaign'
+      fill_in :campaign_alerts_description, with: "tsunami warning"
+
+      choose :campaign_alerts_severity_voluntary_evacuation
+
+      click_on 'Send Notification'
 
       campaign = Campaign.last
 
-      expect(page).to have_content "Campaign Created"
-      expect(page).to have_content Time.now.strftime("%A, %d %b %Y %H:%M %p")
-      expect(page).to have_content "Earthquake"
+      expect(current_path).to eq admin_campaigns_path
 
-      expect(current_path).to eq new_admin_campaign_alert_path(campaign)
+      expect(page).to have_content "Campaign Created"
+
+      within("#active-campaigns") do
+        expect(page).to have_content Time.now.strftime("%A, %d %b %Y %H:%M %p")
+        expect(page).to have_content "blueberry pie".capitalize
+
+        expect(page).to have_content "Voluntary Evacuation"
+      end
     end
   end
 
