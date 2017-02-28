@@ -1,30 +1,23 @@
-// sprocket requires have been removed, include additional css files using sass's @import below this line
 @import "neat";
 @import "../uswds-0.14.0/stylesheets/uswds";
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
-@import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i');
 @import "variables";
 @import "navbar";
 @import "welcome";
 @import "signup";
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i');
 
 #earthquakes, #fires, #rivers, #hazards, #tsunami {
   height: 400px;
   width: 600px;
 }
 
-// * {
-//   border: 1px solid red;
-// }
-
-html {
+html, body {
   height: 100%;
 }
 
 body {
   background: linear-gradient(to bottom, #ffffff, #dce4ee);
-  height: 100%;
-  margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
