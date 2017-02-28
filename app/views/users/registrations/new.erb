@@ -69,21 +69,20 @@
 
 
 <div class="signup-page__container">
-
-  <div class="signup-page__progress-bar">
-    <div class="signup-page__icon-1"></div>
-    <div class="signup-page__icon-2"></div>
-    <div class="signup-page__icon-3"></div>
-    <div class="signup-page__icon-4"></div>
-    <div class="signup-page__icon-5"></div>
-    <div class="signup-page__icon-6"></div>
-    <div class="signup-page__icon-7"></div>
-  </div>
-
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), validate: true) do |f| %>
-      <%= devise_error_messages! %>
 
       <div class="signup-page" id="signup-page-1" data-pagenumber="1">
+        <div class="signup-page__progress-bar">
+          <div class="signup-page__icon-1-active"></div>
+          <div class="signup-page__icon-2"></div>
+          <div class="signup-page__icon-3"></div>
+          <div class="signup-page__icon-4"></div>
+          <div class="signup-page__icon-5"></div>
+          <div class="signup-page__icon-6"></div>
+          <div class="signup-page__icon-7"></div>
+        </div>
+
+        <%= devise_error_messages! %>
 
         <div class="signup-page__title">
           Can we call you by name?
@@ -112,6 +111,15 @@
       </div>
 
       <div class="signup-page" id="signup-page-2" data-pagenumber="2">
+        <div class="signup-page__progress-bar">
+          <div class="signup-page__icon-1"></div>
+          <div class="signup-page__icon-2-active"></div>
+          <div class="signup-page__icon-3"></div>
+          <div class="signup-page__icon-4"></div>
+          <div class="signup-page__icon-5"></div>
+          <div class="signup-page__icon-6"></div>
+          <div class="signup-page__icon-7"></div>
+        </div>
 
         <div class="signup-page__title">
           Hey, Brenda.
@@ -142,6 +150,16 @@
       </div>
 
       <div class="signup-page" id="signup-page-3" data-pagenumber="3">
+        <div class="signup-page__progress-bar">
+          <div class="signup-page__icon-1"></div>
+          <div class="signup-page__icon-2"></div>
+          <div class="signup-page__icon-3-active"></div>
+          <div class="signup-page__icon-4"></div>
+          <div class="signup-page__icon-5"></div>
+          <div class="signup-page__icon-6"></div>
+          <div class="signup-page__icon-7"></div>
+        </div>
+
 
         <div class="signup-page__title">
           We'll need your email.
@@ -164,6 +182,15 @@
       </div>
 
       <div class="signup-page" id="signup-page-4" data-pagenumber="4">
+        <div class="signup-page__progress-bar">
+          <div class="signup-page__icon-1"></div>
+          <div class="signup-page__icon-2"></div>
+          <div class="signup-page__icon-3"></div>
+          <div class="signup-page__icon-4-active"></div>
+          <div class="signup-page__icon-5"></div>
+          <div class="signup-page__icon-6"></div>
+          <div class="signup-page__icon-7"></div>
+        </div>
 
         <div class="signup-page__title">
           And your digits too, please.
@@ -189,6 +216,15 @@
       </div>
 
       <div class="signup-page" id="signup-page-5" data-pagenumber="5">
+        <div class="signup-page__progress-bar">
+          <div class="signup-page__icon-1"></div>
+          <div class="signup-page__icon-2"></div>
+          <div class="signup-page__icon-3"></div>
+          <div class="signup-page__icon-4"></div>
+          <div class="signup-page__icon-5-active"></div>
+          <div class="signup-page__icon-6"></div>
+          <div class="signup-page__icon-7"></div>
+        </div>
 
         <div class="signup-page__title">
           Home, Sweet Home.
