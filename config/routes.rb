@@ -16,8 +16,6 @@ Rails.application.routes.draw do
   get "disaster_events/tsunami" => "disaster_events#tsunami"
   get "disaster_events/weather" => "disaster_events#weather"
 
-  get "/maps" => "maps#index"
-
   namespace :admin do
     get "/fires" => "event_maps#fires"
     get "/earthquakes" => "event_maps#earthquakes"

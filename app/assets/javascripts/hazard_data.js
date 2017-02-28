@@ -1,6 +1,38 @@
 /**
  * Created by sfgarage on 2/27/17.
  */
+var loadMap = function loadMap(url, containerId) {
+    require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/layers/MapImageLayer",
+        "dojo/domReady!"
+    ], function (Map, MapView, MapImageLayer) {
+        var layer = new MapImageLayer({
+            url: url
+        });
+
+        var map = new Map({
+            basemap: "streets-relief-vector",
+            layers: [layer]
+        });
+
+        console.log("maps", map);
+
+        var view = new MapView({
+            container: containerId,
+            map: map,
+            zoom: 5,
+            center: [-122.4194, 37.774]
+        }).then(function () {
+                console.log("complete");
+            }, function(error){
+                console.log("error:", error);
+            }
+        );
+    });
+};
+
 
 $(document).ready(function(){
     if ($("#fire-data").length > 0){
@@ -10,8 +42,6 @@ $(document).ready(function(){
 
        $.get(fire_url, function(data){
            data.forEach(function(fire_event){
-               console.log(fire_event);
-
                var title = "<td>" + fire_event["title"] + "</td>";
                var timestamp = "<td>" + fire_event["pubDate"] + "</td>";
                var link = "<td>" + fire_event["link"] + "</td>";
@@ -20,6 +50,8 @@ $(document).ready(function(){
                $(newItem).appendTo("#fire-data--table");
            });
        });
+
+        loadMap("https://wildfire.cr.usgs.gov/ArcGIS/rest/services/geomac_dyn/MapServer", "fires");
     }
 
     if ($("#earthquake-data").length > 0) {
@@ -29,8 +61,6 @@ $(document).ready(function(){
 
         $.get(earthquake_url, function (data) {
             data.forEach(function (earthquake_event) {
-                console.log(earthquake_event["properties"]);
-
                 var properties = earthquake_event["properties"];
 
                 var title = "<td>" + properties["title"] + "</td>";
@@ -41,6 +71,8 @@ $(document).ready(function(){
                 $(newItem).appendTo("#earthquake-data--table");
             });
         });
+
+        loadMap("http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Earthquakes/EarthquakesFromLastSevenDays/MapServer", "earthquakes");
     }
 
     if ($("#weather-data").length > 0) {
@@ -50,8 +82,6 @@ $(document).ready(function(){
 
         $.get(weather_url, function (data) {
             data.forEach(function (weather_event) {
-                console.log(weather_event);
-
                 var properties = weather_event["entry"];
 
                 var title = "<td>" + properties["title"] + "</td>";
@@ -62,6 +92,8 @@ $(document).ready(function(){
                 $(newItem).appendTo("#weather-data--table");
             });
         });
+
+        loadMap("https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_weather_hazards/MapServer", "hazards");
     }
 
     if ($("#rivers-data").length > 0) {
@@ -71,8 +103,6 @@ $(document).ready(function(){
 
         $.get(rivers_url, function (data) {
             data.forEach(function (rivers_event) {
-                console.log(rivers_event);
-
                 var properties = rivers_event;
 
                 var title = "<td>" + properties["title"] + "</td>";
@@ -83,6 +113,8 @@ $(document).ready(function(){
                 $(newItem).appendTo("#rivers-data--table");
             });
         });
+
+        loadMap("https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Observations/ahps_riv_gauges/MapServer", "rivers");
     }
 
     if ($("#tsunami-data").length > 0) {
@@ -92,8 +124,6 @@ $(document).ready(function(){
 
         $.get(tsunami_url, function (data) {
             data.forEach(function (tsunami_event) {
-                console.log(tsunami_event);
-
                 var properties = tsunami_event;
 
                 var title = "<td>" + properties["title"] + "</td>";
@@ -104,5 +134,7 @@ $(document).ready(function(){
                 $(newItem).appendTo("#tsunami-data--table");
             });
         });
+
+        loadMap("http://maps.gdc.govt.nz/arcgis/rest/services/Open_Data/GDC_hazard_geological/MapServer", "tsunami");
     }
 });
