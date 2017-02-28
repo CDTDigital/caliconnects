@@ -78,7 +78,7 @@
           <div class="signup-page__icon-3"></div>
           <div class="signup-page__icon-4"></div>
           <div class="signup-page__icon-5"></div>
-          <div class="signup-page__icon-6"></div>
+
           <div class="signup-page__icon-7"></div>
         </div>
 
@@ -117,7 +117,7 @@
           <div class="signup-page__icon-3"></div>
           <div class="signup-page__icon-4"></div>
           <div class="signup-page__icon-5"></div>
-          <div class="signup-page__icon-6"></div>
+
           <div class="signup-page__icon-7"></div>
         </div>
 
@@ -156,7 +156,7 @@
           <div class="signup-page__icon-3-active"></div>
           <div class="signup-page__icon-4"></div>
           <div class="signup-page__icon-5"></div>
-          <div class="signup-page__icon-6"></div>
+
           <div class="signup-page__icon-7"></div>
         </div>
 
@@ -188,7 +188,7 @@
           <div class="signup-page__icon-3"></div>
           <div class="signup-page__icon-4-active"></div>
           <div class="signup-page__icon-5"></div>
-          <div class="signup-page__icon-6"></div>
+
           <div class="signup-page__icon-7"></div>
         </div>
 
@@ -222,7 +222,7 @@
           <div class="signup-page__icon-3"></div>
           <div class="signup-page__icon-4"></div>
           <div class="signup-page__icon-5-active"></div>
-          <div class="signup-page__icon-6"></div>
+
           <div class="signup-page__icon-7"></div>
         </div>
 
@@ -244,10 +244,38 @@
 
         <div class="signup-page__box-buttons">
           <div id="signup-page__back-button" class="signup-page__back-button usa-button-primary">Back</div>
+          <div id="signup-page__next-button" class="signup-page__next-button usa-button-primary">Next</div>
         </div>
 
-        <div class="actions">
-          <%= f.submit "Sign up" %>
+
+      </div>
+
+      <div class="signup-page" id="signup-page-6" data-pagenumber="6">
+        <div class="signup-page__progress-bar">
+          <div class="signup-page__icon-1"></div>
+          <div class="signup-page__icon-2"></div>
+          <div class="signup-page__icon-3"></div>
+          <div class="signup-page__icon-4"></div>
+          <div class="signup-page__icon-5"></div>
+
+          <div class="signup-page__icon-7-active"></div>
+        </div>
+
+        <div class="signup-page__title">
+          This is really, really important
+        </div>
+
+        <div class="signup-page__details">
+          <p>
+            When you get an alert, there will always be a link for more details. <b>Please, Please, Please, click this link</b> to get the details. This helps us know how many people are aware of the event, which helps to inform our next steps. Clicking the link helps both of us.
+          </p>
+          <p><b>Let's practice this.</b></p>
+          <p>To complete your sign up, we will send you an SMS with a link. Click the link just like you would if it was a real alert.</p>
+        </div>
+
+        <div class="signup-page__box-buttons">
+          <div id="signup-page__back-button" class="signup-page__back-button usa-button-primary">Back</div>
+          <div><%= f.submit "Sign up", class: "usa-button-primary", id: "signup-page__submit-button" %></div>
         </div>
       </div>
 

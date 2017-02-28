@@ -30,6 +30,10 @@ describe "user sign up" do
 
     fill_in :address, with: "3 Alley Lane, San Francisco 94105"
 
+    within "#signup-page-5" do
+      find("#signup-page__next-button").click
+    end
+
     click_button "Sign up"
 
     expect(page).to have_content "check ur phone"
