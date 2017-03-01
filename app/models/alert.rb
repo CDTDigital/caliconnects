@@ -31,7 +31,7 @@ class Alert < ApplicationRecord
   end
 
   def send_notifications(params, return_url)
-    sms_body = description + " click here for more info: " + return_url + "?id=" + Alert.last.id.to_s
+    notification_body = description + " click here for more info: " + return_url + "?id=" + Alert.last.id.to_s
 
     if !params[:city].blank?
       users = Address.where(city: params[:city]).map { |address| address.users }.flatten
@@ -60,7 +60,8 @@ class Alert < ApplicationRecord
 
     users.each do |user|
       if user.phone && !user.admin
-        SmsService.new.send_message(user.phone, sms_body)
+        SmsService.new.send_message(user.phone, notification_body)
+        AlertMailer.alert_email(user, notification_body).deliver_now
       end
     end
 

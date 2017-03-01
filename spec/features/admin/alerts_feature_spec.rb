@@ -28,6 +28,16 @@ describe "alerts" do
       allow(new_sms).to receive(:send_message)
     end
 
+    it "sends an email alerts to users" do
+      visit new_admin_campaign_alert_path(campaign)
+
+      fill_in :alert_description, with: "tsunami warning"
+
+      choose :alert_severity_voluntary_evacuation
+
+      expect { click_on 'Send Notification' }.to change{ ActionMailer::Base.deliveries.count }.by(2)
+    end
+
     context "location levels" do
       it "sends alerts to everyone in system when no location is provided" do
         visit new_admin_campaign_alert_path(campaign)
