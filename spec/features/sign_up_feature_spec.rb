@@ -22,7 +22,7 @@ describe "user sign up" do
       find("#signup-page__next-button").click
     end
 
-    fill_in :user_phone, with: "+14155555555"
+    fill_in :user_phone, with: "4155555555"
 
     within "#signup-page-4" do
       find("#signup-page__next-button").click

@@ -10,7 +10,7 @@ describe Users::RegistrationsController do
                                 last_name: "jill",
                                 email: "test@example.com",
                                 password: "jillsecret",
-                                phone: "+15005550006" },
+                                phone: "5005550006" },
                           street: "425",
                           route: "Market Street",
                           city: "San Francisco",

@@ -12,7 +12,7 @@ class SmsService
     if Rails.env != "test" && Rails.env !="ci"
       @client.account.messages.create({
                                           :from => ENV['TWILIO_NUMBER'],
-                                          :to => number,
+                                          :to => "+1" + number,
                                           :body => body
                                       })
     end

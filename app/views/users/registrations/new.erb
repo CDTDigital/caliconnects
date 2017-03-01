@@ -205,7 +205,7 @@
             <%= f.label :phone, class: "signup-page__label-title" %>
             <div class="signup-page__label-required">Required</div>
           </div>
-          <%= f.telephone_field :phone, class: "signup-page__input" %>
+          <%= f.telephone_field :phone, class: "signup-page__input", maxlength: 10 %>
         </div>
 
         <div class="signup-page__box-buttons">
