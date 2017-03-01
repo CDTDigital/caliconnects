@@ -1,40 +1,66 @@
-<%= form.label :description %>
-<%= form.text_field :description %>
+<div class="alert-form">
 
-<fieldset>
-  <legend>Select Severity</legend>
+  <fieldset>
+    <div class="alert-form__notification-title">Notification Type</div>
+    <p class="alert-form__notification-message">
+      Select a notification categorization
+    </p>
 
-  <% Alert.severities.each do |severity| %>
-      <li>
-        <%= form.label :severity, to_human_readable(severity) %>
-        <%= form.radio_button :severity, severity %>
-      </li>
-  <% end %>
-</fieldset>
+    <% Alert.severities.each do |severity| %>
+        <ul class="alert-form__notification-list">
+          <li>
+            <%= form.label :severity, to_human_readable(severity), class: "alert-form__label" %>
+            <%= form.radio_button :severity, severity%>
+          </li>
+        </ul>
+    <% end %>
+  </fieldset>
 
-<h2>Location Designation</h2>
+  <div class="alert-form__notification-title">
+      <%= form.label :description, "Notification Message" %>
+  </div>
+
+  <p class="alert-form__notification-message">
+    This will be your first message.
+  </p>
+
+  <div class="alert-form__notification-textarea">
+    <div class="alert-form__notification-textarea-header">
+      <div>Message Text</div>
+      <div>Characters: ?</div>
+    </div>
+    <%= form.text_area :description, row: "15", class: "alert-form__notification-textarea-input" %>
+  </div>
 
 
-<button class="admin-alert-location-button" data-locationlevel="3">Street Level</button>
-<button class="admin-alert-location-button" data-locationlevel="2">Zip Level</button>
-<button class="admin-alert-location-button" data-locationlevel="1">City Level</button>
+  <div class="alert-form__notification-title">Location Designation</div>
+  <p class="alert-form__notification-message">
+    Setting a location at the street, city, or zip level will include all recipients registered in that area to recieve the notification
+  </p>
 
-<div id="location-container-1" class="location-container">
-  <%= label_tag :city %>
-  <%= text_field_tag :city %>
+
+  <button class="admin-alert-location-button usa-button-outline" data-locationlevel="3">Street Level</button>
+  <button class="admin-alert-location-button usa-button-outline" data-locationlevel="2">Zip Level</button>
+  <button class="admin-alert-location-button usa-button-outline" data-locationlevel="1">City Level</button>
+
+  <div id="location-container-1" class="location-container">
+    <%= label_tag :city, nil, class: "alert-form__label" %>
+    <%= text_field_tag :city %>
+  </div>
+
+  <div id="location-container-2" class="location-container">
+    <%= label_tag :zipcode, nil, class: "alert-form__label" %>
+    <%= text_field_tag :zipcode %>
+  </div>
+
+  <div id="location-container-3" class="location-container">
+    <%= label_tag :street, nil, class: "alert-form__label" %>
+    <%= text_field_tag :street %>
+
+    <%= label_tag :street_city, nil, class: "alert-form__label"  %>
+    <%= text_field_tag :street_city %>
+  </div>
+
+  <div id="admin-alert-marker"></div>
+
 </div>
-
-<div id="location-container-2" class="location-container">
-  <%= label_tag :zipcode %>
-  <%= text_field_tag :zipcode %>
-</div>
-
-<div id="location-container-3" class="location-container">
-  <%= label_tag :street %>
-  <%= text_field_tag :street %>
-
-  <%= label_tag :street_city %>
-  <%= text_field_tag :street_city %>
-</div>
-
-<div id="admin-alert-marker"></div>

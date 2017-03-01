@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i');
 @import "neat";
 @import "../uswds-0.14.0/stylesheets/uswds";
 @import "variables";
@@ -8,8 +10,8 @@
 @import "sidebar";
 @import "active-campaigns";
 @import "archive-campaigns";
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
-@import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i');
+@import "new-campaign";
+@import "alert-form";
 
 // * {
 //  border: 2px solid red;

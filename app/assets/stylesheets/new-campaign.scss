@@ -1,0 +1,30 @@
+.new-campaign {
+  padding: 5%;
+}
+.new-campaign__title {
+  color: $color-primary;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.new-campaign__minor-title {
+  font-family: $font-sans;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.new-campaign__title-message {
+  font-size: .8em;
+  color: $color-gray;
+  margin: 0;
+}
+
+.new-campaign__label-title {
+  font-size: .7em;
+  color: $color-gray;
+  font-weight: bold;
+}
+
+.new-campaign__label-field {
+  max-width: 100%;
+}

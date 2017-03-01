@@ -1,11 +1,30 @@
-<%= render partial: 'admin/shared/admin_sidebar' %>
+<div class="admin__container">
 
-<%= form_for [:admin, @campaign] do |f| %>
-    <%= f.text_field :name %>
+  <%= render partial: 'admin/shared/admin_sidebar' %>
 
-    <%= f.fields_for :alerts do |alerts_form| %>
-        <%= render partial: 'admin/shared/alert_form', :locals => {:form => alerts_form} %>
-    <% end %>
+  <main class="admin__new-campaign">
 
-    <%= f.submit "Send Notification" %>
-<% end %>
+    <section class="new-campaign">
+
+      <%= form_for [:admin, @campaign] do |f| %>
+          <div class="new-campaign__title">New Campaign</div>
+          <h5 class="new-campaign__minor-title">Title</h5>
+          <p class="new-campaign__title-message">
+            You are starting a new campaign. You must name the campaign first. A campaign is used to group together all notifications relating to a specific event.
+          </p>
+
+          <%= f.label :name, "Title", class: "new-campaign__label-title" %>
+          <%= f.text_field :name, class: "new-campaign__label-field" %>
+
+          <%= f.fields_for :alerts do |alerts_form| %>
+              <%= render partial: 'admin/shared/alert_form', :locals => {:form => alerts_form} %>
+          <% end %>
+
+          <%= f.submit "Send Notification" %>
+      <% end %>
+
+    </section>
+
+  </main>
+
+</div>
