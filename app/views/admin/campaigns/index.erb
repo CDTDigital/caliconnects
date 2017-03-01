@@ -1,29 +1,37 @@
-<%= render partial: 'admin/shared/admin_sidebar' %>
+<div class="admin__container">
 
-<%= button_to "Create New Campaign", new_admin_campaign_path, method: :get %>
+  <%= render partial: 'admin/shared/admin_sidebar' %>
 
-<h2>Active Campaigns</h2>
+  <main class="active-campaigns">
 
-<ul id="active-campaigns">
-  <% @campaigns.where(archived: false).each do |campaign| %>
-      <li>
-        <%= to_human_readable(campaign.alerts.last.severity) unless campaign.alerts.empty? %>
-        <%= campaign.name.capitalize + ", " + campaign.formatted_date %>
-        <%= button_to "create alert", new_admin_campaign_alert_path(campaign.id), method: :get %>
-        <%= button_to "show", admin_campaign_path(campaign.id), method: :get %>
-        <%= button_to "end campaign", admin_campaign_path(campaign.id), method: :delete %>
-      </li>
-  <% end %>
-</ul>
+    <div class="active-campaigns__title">Active Campaigns</div>
+    <%= button_to "Create New Campaign", new_admin_campaign_path, method: :get, class: "usa-button-primary" %>
 
-<h2>Archived Campaigns</h2>
+    <ul id="active-campaigns">
+      <% @campaigns.where(archived: false).each do |campaign| %>
+          <li>
+            <%= to_human_readable(campaign.alerts.last.severity) unless campaign.alerts.empty? %>
+            <%= campaign.name.capitalize + ", " + campaign.formatted_date %>
+            <%= button_to "create alert", new_admin_campaign_alert_path(campaign.id), method: :get %>
+            <%= button_to "show", admin_campaign_path(campaign.id), method: :get %>
+            <%= button_to "end campaign", admin_campaign_path(campaign.id), method: :delete %>
+          </li>
+      <% end %>
+    </ul>
 
-<ul id="archived-campaigns">
-  <% @campaigns.where(archived: true).each do |campaign| %>
-      <li>
-        <%= campaign.name.capitalize + ", " + campaign.formatted_date %>
-        <%= button_to "create alert", new_admin_campaign_alert_path(campaign.id), method: :get %>
-        <%= button_to "show", admin_campaign_path(campaign.id), method: :get %>
-      </li>
-  <% end %>
-</ul>
+    <h2>Archived Campaigns</h2>
+
+    <ul id="archived-campaigns">
+      <% @campaigns.where(archived: true).each do |campaign| %>
+          <li>
+            <%= campaign.name.capitalize + ", " + campaign.formatted_date %>
+            <%= button_to "create alert", new_admin_campaign_alert_path(campaign.id), method: :get %>
+            <%= button_to "show", admin_campaign_path(campaign.id), method: :get %>
+          </li>
+      <% end %>
+    </ul>
+
+
+  </main>
+
+</div>

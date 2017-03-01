@@ -1,0 +1,46 @@
+.sidebar {
+  @include span-columns(2);
+  margin-top: 2%;
+}
+
+.sidebar__notification-title {
+  border-top: 2px solid $color-black;
+  font-size: .8em;
+  font-weight: bold;
+  color: $color-black;
+  padding: 8px 5px 8px 5px;
+}
+
+.sidebar__notification-list {
+  list-style: none;
+  font-weight: 600;
+  font-size: .7em;
+}
+
+.sidebar__notification-item {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.sidebar__event-title {
+  border-top: 2px solid $color-black;
+  font-size: .8em;
+  font-weight: bold;
+  color: $color-black;
+  padding: 8px 5px 8px 5px;
+}
+
+.sidebar__event-list {
+  list-style: none;
+  font-weight: 600;
+  font-size: .7em;
+}
+
+.sidebar__event-item {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  a {
+    text-decoration: none;
+    color: $color-black;
+  }
+}

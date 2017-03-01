@@ -1,5 +1,16 @@
-<%= link_to "Fire", admin_fires_path %>
-<%= link_to "Earthquake", admin_earthquakes_path %>
-<%= link_to "River Gauge", admin_rivers_path %>
-<%= link_to "Weather Hazards", admin_weather_path %>
-<%= link_to "Tsunami", admin_tsunami_path %>
+<nav class="sidebar">
+  <div class="sidebar__notification-title">Notification Campaigns</div>
+  <ul class="sidebar__notification-list">
+    <li class="sidebar__notification-item"> Active Campaigns </li>
+    <li class="sidebar__notification-item"> New Campaigns </li>
+    <li class="sidebar__notification-item"> Archived Campaigns </li>
+  </ul>
+  <div class="sidebar__event-title">Event Maps and Data</div>
+  <ul class="sidebar__event-list">
+    <li class="sidebar__event-item"><%= link_to "Fire", admin_fires_path %></li>
+    <li class="sidebar__event-item"><%= link_to "Earthquake", admin_earthquakes_path %></li>
+    <li class="sidebar__event-item"><%= link_to "River Gauge", admin_rivers_path %></li>
+    <li class="sidebar__event-item"><%= link_to "Weather Hazards", admin_weather_path %></li>
+    <li class="sidebar__event-item"><%= link_to "Tsunami", admin_tsunami_path %></li>
+  </ul>
+</nav>
