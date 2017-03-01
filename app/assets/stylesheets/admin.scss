@@ -1,3 +1,7 @@
+.admin {
+  @include span-columns(10);
+}
+
 .admin__container {
   @include outer-container(90%);
 }

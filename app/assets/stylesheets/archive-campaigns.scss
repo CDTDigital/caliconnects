@@ -1,17 +1,18 @@
-.active-campaigns {  
+.archived-campaigns {
+  @include span-columns(10);
   padding: 5%;
 }
 
-.active-campaigns__title {
+.archived-campaigns__title {
   color: $color-primary;
   font-weight: bold;
   font-size: 1.2em;
 }
 
-.active-campaigns__table {
+.archived-campaigns__table {
 }
 
-.active-campaigns__table-header {
+.archived-campaigns__table-header {
   background: none;
   border: none;
   border-bottom: 2px solid $color-gray-light;
@@ -19,14 +20,14 @@
   color: $color-black;
 }
 
-.active-campaigns__table-item {
+.archived-campaigns__table-item {
   background: none;
   border: none;
   border-bottom: 2px solid $color-gray-light;
   font-size: .8em;
 }
 
-.active-campaigns__table-item-color {
+.archived-campaigns__table-item-color {
   background: gray;
   width: 20px;
   border: none;

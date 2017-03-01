@@ -2,36 +2,101 @@
 
   <%= render partial: 'admin/shared/admin_sidebar' %>
 
-  <main class="active-campaigns">
+  <main class="admin">
 
-    <div class="active-campaigns__title">Active Campaigns</div>
-    <%= button_to "Create New Campaign", new_admin_campaign_path, method: :get, class: "usa-button-primary" %>
+    <section class="active-campaigns" id="active-campaigns">
 
-    <ul id="active-campaigns">
-      <% @campaigns.where(archived: false).each do |campaign| %>
-          <li>
-            <%= to_human_readable(campaign.alerts.last.severity) unless campaign.alerts.empty? %>
-            <%= campaign.name.capitalize + ", " + campaign.formatted_date %>
-            <%= button_to "create alert", new_admin_campaign_alert_path(campaign.id), method: :get %>
-            <%= button_to "show", admin_campaign_path(campaign.id), method: :get %>
-            <%= button_to "end campaign", admin_campaign_path(campaign.id), method: :delete %>
-          </li>
-      <% end %>
-    </ul>
+      <div class="active-campaigns__title">Active Campaigns</div>
 
-    <h2>Archived Campaigns</h2>
+      <%= button_to "Create New Campaign", new_admin_campaign_path, method: :get, class: "usa-button-primary" %>
 
-    <ul id="archived-campaigns">
-      <% @campaigns.where(archived: true).each do |campaign| %>
-          <li>
-            <%= campaign.name.capitalize + ", " + campaign.formatted_date %>
-            <%= button_to "create alert", new_admin_campaign_alert_path(campaign.id), method: :get %>
-            <%= button_to "show", admin_campaign_path(campaign.id), method: :get %>
-          </li>
-      <% end %>
-    </ul>
+      <table class="active-campaigns__table">
+        <thead >
+          <tr>
+            <th class="active-campaigns__table-header"></th>
+            <th class="active-campaigns__table-header">Category</th>
+            <th class="active-campaigns__table-header">Campaign Name</th>
+            <th class="active-campaigns__table-header">Recipients</th>
+            <th class="active-campaigns__table-header"># of notifications sent in Campaign</th>
+            <th class="active-campaigns__table-header">Time Stamp</th>
+            <th class="active-campaigns__table-header">Create</th>
+            <th class="active-campaigns__table-header">Show</th>
+            <th class="active-campaigns__table-header">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @campaigns.where(archived: false).each do |campaign| %>
+                <tr>
+                  <td class="active-campaigns__table-item-color"></td>
+                  <td class="active-campaigns__table-item">
+                    <%= to_human_readable(campaign.alerts.last.severity) unless campaign.alerts.empty? %>
+                  </td>
+                  <td class="active-campaigns__table-item">
+                    <%= campaign.name.capitalize %>
+                  </td>
+                  <td class="active-campaigns__table-item">
+                  </td>
+                  <td class="active-campaigns__table-item">
+                  </td>
+                  <td class="active-campaigns__table-item">
+                    <%= campaign.formatted_date %>
+                  </td>
+                  <td class="active-campaigns__table-item">
+                    <%= link_to "create alert", new_admin_campaign_alert_path(campaign.id), method: :get %>
+                  </td>
+                  <td class="active-campaigns__table-item">
+                    <%= link_to "show", admin_campaign_path(campaign.id), method: :get %>
+                  </td>
+                  <td class="active-campaigns__table-item">
+                    <%= link_to "end campaign", admin_campaign_path(campaign.id), method: :delete %>
+                  </td>
+                </tr>
+              <% end %>
+        </tbody>
+      </table>
+  </section>
 
+    <section class="archived-campaigns" id="archived-campaigns">
+      <div class="archived-campaigns__title">Archived Campaigns</div>
+      <table class="archived-campaigns__table">
+        <thead >
+          <tr>
+            <th class="archived-campaigns__table-header"></th>
+            <th class="archived-campaigns__table-header">Category</th>
+            <th class="archived-campaigns__table-header">Campaign Name</th>
+            <th class="archived-campaigns__table-header">Recipients</th>
+            <th class="archived-campaigns__table-header"># of notifications sent in Campaign</th>
+            <th class="archived-campaigns__table-header">Time Stamp</th>
+            <th class="archived-campaigns__table-header">Show</th>
+          </tr>
+        </thead>
+      <tbody>
+          <% @campaigns.where(archived: true).each do |campaign| %>
+              <tr>
+                <td class="archived-campaigns__table-item-color"></td>
+                <td class="archived-campaigns__table-item">
+                  <%= to_human_readable(campaign.alerts.last.severity) unless campaign.alerts.empty? %>
+                </td>
+                <td class="archived-campaigns__table-item">
+                  <%= campaign.name.capitalize %>
+                </td>
+                <td class="archived-campaigns__table-item">
+                </td>
+                <td class="archived-campaigns__table-item">
+                </td>
+                <td class="archived-campaigns__table-item">
+                  <%= campaign.formatted_date %>
+                </td>
+                <td class="archived-campaigns__table-item">
+                  <%= link_to "show", admin_campaign_path(campaign.id), method: :get %>
+                </td>
+              </tr>
+            <% end %>
+      </tbody>
+    </table>
 
-  </main>
+  </section>
+
+</main>
 
 </div>

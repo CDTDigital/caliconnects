@@ -50,7 +50,7 @@ describe "campaign" do
     it "admin can end campaigns" do
       visit admin_campaign_path(campaign)
 
-      click_button "end campaign"
+      click_on "end campaign"
 
       expect(page).to have_content "Campaign Archived"
     end
@@ -79,7 +79,7 @@ describe "campaign" do
     it "admin can end campaigns" do
       visit admin_campaigns_path
 
-      click_button "end campaign"
+      click_on "end campaign"
 
       within("#active-campaigns") do
         expect(page).to_not have_content campaign.formatted_date
