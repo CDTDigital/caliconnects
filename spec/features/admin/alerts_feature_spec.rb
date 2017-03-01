@@ -40,7 +40,7 @@ describe "alerts" do
       expect(new_sms).to have_received(:send_message).exactly(2).times
     end
 
-    xit "sends alerts to everyone in a city when a city is provided", js: true do
+    it "sends alerts to everyone in a city when a city is provided", js: true do
       visit new_admin_campaign_alert_path(campaign)
 
       fill_in :alert_description, with: "tsunami warning"
@@ -50,6 +50,39 @@ describe "alerts" do
       click_on "City Level"
 
       fill_in :city, with: "San Francisco"
+
+      click_on 'Send Notification'
+
+      expect(new_sms).to have_received(:send_message).exactly(1).times
+    end
+
+    it "sends alerts to everyone in a zip when a zip is provided", js: true do
+      visit new_admin_campaign_alert_path(campaign)
+
+      fill_in :alert_description, with: "tsunami warning"
+
+      choose :alert_severity_voluntary_evacuation
+
+      click_on "Zip Level"
+
+      fill_in :zipcode, with: "94105"
+
+      click_on 'Send Notification'
+
+      expect(new_sms).to have_received(:send_message).exactly(1).times
+    end
+
+    it "sends alerts to everyone in a street when a street is provided", js: true do
+      visit new_admin_campaign_alert_path(campaign)
+
+      fill_in :alert_description, with: "tsunami warning"
+
+      choose :alert_severity_voluntary_evacuation
+
+      click_on "Street Level"
+
+      fill_in :street, with: "happy street"
+      fill_in :street_city, with: "San Francisco"
 
       click_on 'Send Notification'
 

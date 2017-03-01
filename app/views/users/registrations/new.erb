@@ -242,11 +242,32 @@
             <%= text_field_tag :address, "", id: "autocomplete", onFocus: "geolocate()" %>
         </div>
 
+        <table id="address" class="signup-address-table">
+          <tr>
+            <td class="label">Street address</td>
+            <td class="slimField"><input class="field" name="street" id="street_number"></input></td>
+            <td class="wideField" colspan="2"><input class="field" name="route" id="route"></input></td>
+          </tr>
+          <tr>
+            <td class="label">City</td>
+            <td class="wideField" colspan="3"><input class="field" name="city" id="locality"></input></td>
+          </tr>
+          <tr>
+            <td class="label">State</td>
+            <td class="slimField"><input class="field" name="state" id="administrative_area_level_1"></input></td>
+            <td class="label">Zip code</td>
+            <td class="wideField"><input class="field" name="zipcode" id="postal_code"></input></td>
+          </tr>
+          <tr>
+            <td class="label">Country</td>
+            <td class="wideField" colspan="3"><input class="field" id="country"></input></td>
+          </tr>
+        </table>
+
         <div class="signup-page__box-buttons">
           <div id="signup-page__back-button" class="signup-page__back-button usa-button-primary">Back</div>
           <div id="signup-page__next-button" class="signup-page__next-button usa-button-primary">Next</div>
         </div>
-
 
       </div>
 
