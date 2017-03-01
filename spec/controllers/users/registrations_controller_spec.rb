@@ -27,6 +27,13 @@ describe Users::RegistrationsController do
 
     it "creates addresses for the users" do
       expect { post :create, params: user_params }.to change{ Address.count }.by(1)
+
+      address = Address.last
+
+      expect(address.street).to eq("425 Market Street")
+      expect(address.city).to eq("San Francisco")
+      expect(address.state).to eq("CA")
+      expect(address.zipcode).to eq("94105")
     end
 
     it "sends sms to confirm user registration" do

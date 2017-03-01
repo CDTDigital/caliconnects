@@ -10,11 +10,15 @@ class SmsService
     puts body
 
     if Rails.env != "test" && Rails.env !="ci"
-      @client.account.messages.create({
+      begin
+        @client.account.messages.create({
                                           :from => ENV['TWILIO_NUMBER'],
                                           :to => "+1" + number,
                                           :body => body
                                       })
+      rescue Twilio::REST::RequestError
+        puts "Error #{$!}"
+      end
     end
   end
 end
