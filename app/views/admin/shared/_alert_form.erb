@@ -11,3 +11,30 @@
       </li>
   <% end %>
 </fieldset>
+
+<h2>Location Designation</h2>
+
+
+<button class="admin-alert-location-button" data-locationlevel="3">Street Level</button>
+<button class="admin-alert-location-button" data-locationlevel="2">Zip Level</button>
+<button class="admin-alert-location-button" data-locationlevel="1">City Level</button>
+
+<div id="location-container-1" class="location-container">
+  <%= label_tag :city %>
+  <%= text_field_tag :city %>
+</div>
+
+<div id="location-container-2" class="location-container">
+  <%= label_tag :zip %>
+  <%= text_field_tag :zip %>
+</div>
+
+<div id="location-container-3" class="location-container">
+  <%= label_tag :street %>
+  <%= text_field_tag :street %>
+
+  <%= label_tag :street_city %>
+  <%= text_field_tag :street_city %>
+</div>
+
+<div id="admin-alert-marker"></div>
