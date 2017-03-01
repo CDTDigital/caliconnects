@@ -8,6 +8,10 @@
     <% @campaign.alerts.each do |alert| %>
         <li>
           <%= alert.description + ", " + to_human_readable(alert.severity) %>
+          <h3>Recipient Analytics</h3>
+          <p><%= "Total Recipients: " + alert.received_total.to_s %></p>
+          <p><%= "Confirmed: " + alert.opened_total.to_s %></p>
+          <p><%= "Not Confirmed: " + (alert.received_total - alert.opened_total).to_s %></p>
         </li>
     <% end %>
 </ul>

@@ -26,9 +26,13 @@ class Admin::CampaignsController < ApplicationController
     )
 
     if campaign.save
-      campaign.alerts.create(alert_params)
+      alert = Alert.new(alert_params.merge({ campaign_id: campaign.id }))
 
       redirect_to admin_campaigns_path, notice: "Campaign Created"
+
+      if alert.save
+        alert.send_notifications(alert_params, preparedness_url)
+      end
     end
   end
 
@@ -51,6 +55,10 @@ class Admin::CampaignsController < ApplicationController
   def alert_params
     alert_params = params.dig(:campaign, :alerts)
 
-    alert_params.permit(:severity, :description) if alert_params
+    if alert_params
+      alert_params.permit(:severity, :description)
+    else
+      {}
+    end
   end
 end

@@ -13,23 +13,7 @@ class Admin::AlertsController < ApplicationController
 
     redirect_to admin_campaign_path(campaign), notice: "Alert Created"
 
-    sms_body = @alert.description + " click here for more info: " + preparedness_url + "?id=" + Alert.last.id.to_s
-
-    if !params[:city].blank?
-      users = Address.where(city: params[:city]).map { |address| address.users }.flatten
-    elsif !params[:zipcode].blank?
-        users = Address.where(zipcode: params[:zipcode]).map { |address| address.users }.flatten
-    elsif !params[:street].blank? && !params[:street_city].blank?
-      users = Address.where(street: params[:street], city: params[:street_city]).map { |address| address.users }.flatten
-    else
-      users = User.all
-    end
-
-    users.each do |user|
-      if user.phone && !user.admin
-        SmsService.new.send_message(user.phone, sms_body)
-      end
-    end
+    @alert.send_notifications(params, preparedness_url)
   end
 
   private

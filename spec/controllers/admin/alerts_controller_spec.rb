@@ -6,15 +6,15 @@ describe Admin::AlertsController do
     context "create" do
       let(:campaign) { create(:campaign) }
       let!(:user) { create(:user) }
+      let(:alert_description) { "take shelter" }
+      let(:alert_params) { {
+          campaign_id: campaign.id,
+          alert: {
+              description: alert_description
+          }
+      } }
 
       it "creates an alert" do
-        alert_params = {
-            campaign_id: campaign.id,
-            alert: {
-                description: "take shelter"
-            }
-        }
-
         expect {
           post :create, params: alert_params
         }.to change { Alert.count }.by(1)
@@ -26,20 +26,20 @@ describe Admin::AlertsController do
         allow(SmsService).to receive(:new).and_return(new_sms)
         allow(new_sms).to receive(:send_message)
 
-        alert_description = "take shelter"
-
-        alert_params = {
-            campaign_id: campaign.id,
-            alert: {
-                description: "take shelter"
-            }
-        }
-
         post :create, params: alert_params
 
         expected_sms_body = alert_description + " click here for more info: " + preparedness_url + "?id=" + Alert.last.id.to_s
 
         expect(new_sms).to have_received(:send_message).with(user.phone, expected_sms_body)
+      end
+
+      it "adds opened_total and received_total to the alert" do
+        post :create, params: alert_params
+
+        alert = Alert.last
+
+        expect(alert.received_total).to be > 0
+        expect(alert.opened_total).to be > 0
       end
     end
   end

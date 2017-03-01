@@ -35,16 +35,18 @@ describe "campaign" do
 
   context "show" do
     let!(:campaign) { create(:campaign) }
-    let!(:alert) { create(:alert, campaign: campaign) }
+    let!(:alert) { create(:alert, campaign: campaign, received_total: 14, opened_total: 10) }
 
-    it "lets the admin view details for a campaign" do
+    it "lets the admin view details for a campaign and its alerts" do
       visit admin_campaigns_path
 
       click_on "show"
 
       expect(current_path).to eq admin_campaign_path(campaign)
-      expect(page).to have_content alert.description
-      expect(page).to have_content to_human_readable(alert.severity)
+
+      expect(page).to have_content "Total Recipients: " + alert.received_total.to_s
+      expect(page).to have_content "Confirmed: " + alert.opened_total.to_s
+      expect(page).to have_content "Not Confirmed: " + (alert.received_total - alert.opened_total).to_s
     end
 
     it "admin can end campaigns" do

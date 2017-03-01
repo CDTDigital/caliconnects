@@ -1,7 +1,10 @@
 describe Admin::CampaignsController do
   context "signed in admin" do
-    let(:user) { create(:user, admin: true) }
-    before(:each) do sign_in user end
+    let(:admin) { create(:user, admin: true) }
+    let!(:user) { create(:user) }
+    before(:each) do
+      sign_in admin
+    end
 
     context "create" do
       it "creates a campaign" do
@@ -14,6 +17,28 @@ describe Admin::CampaignsController do
         expect {
           post :create, params: campaign_params
         }.to change { Campaign.count }.by(1)
+      end
+
+      it "notifies users" do
+        new_sms = double
+
+        allow(SmsService).to receive(:new).and_return(new_sms)
+        allow(new_sms).to receive(:send_message)
+
+        campaign_params = {
+            campaign: {
+                category: "earthquake",
+                alerts: {
+                    description: "take shelter"
+                }
+            }
+        }
+
+        post :create, params: campaign_params
+
+        expected_sms_body = "take shelter click here for more info: " + preparedness_url + "?id=" + Alert.last.id.to_s
+
+        expect(new_sms).to have_received(:send_message).with(user.phone, expected_sms_body)
       end
     end
 
