@@ -1,9 +1,6 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-
-  include ActiveModel::Validations
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -13,7 +10,6 @@ class User < ApplicationRecord
 
   validates :phone, length: {is: 10}
 
-  validates :password, length: { minimum: 8 }
   validates_presence_of   :email, if: :email_required?
   validates_format_of     :email, with: email_regexp
 end

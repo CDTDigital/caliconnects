@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
   before_action :authenticate_scope!, except: [:new, :create, :confirmation]
-# before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -31,7 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update
     super do |user|
-      user.addresses.first.update(address_params)
+      user.addresses.first.update(address_params) if user.addresses.first
     end
   end
 
@@ -55,6 +55,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 
   private
 
