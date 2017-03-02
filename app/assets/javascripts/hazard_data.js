@@ -43,7 +43,7 @@ $(document).ready(function(){
                var timestamp = "<td>" + fire_event["pubDate"] + "</td>";
                var link = "<td>" + fire_event["link"] + "</td>";
 
-               var newItem = "<tr>" + title + timestamp + link + "</tr>";
+               var newItem = "<tr class='data-maps__table-data'>" + title + timestamp + link + "</tr>";
                $(newItem).appendTo("#fire-data--table");
            });
        });
@@ -64,7 +64,7 @@ $(document).ready(function(){
                 var timestamp = "<td>" + properties["time"] + "</td>";
                 var link = "<td>" + properties["url"] + "</td>";
 
-                var newItem = "<tr>" + title + timestamp + link + "</tr>";
+                var newItem = "<tr class='data-maps__table-data'>" + title + timestamp + link + "</tr>";
                 $(newItem).appendTo("#earthquake-data--table");
             });
         });
@@ -85,7 +85,7 @@ $(document).ready(function(){
                 var timestamp = "<td>" + properties["updated"] + "</td>";
                 var link = "<td>" + properties["link"]["href"] + "</td>";
 
-                var newItem = "<tr>" + title + timestamp + link + "</tr>";
+                var newItem = "<tr class='data-maps__table-data'>" + title + timestamp + link + "</tr>";
                 $(newItem).appendTo("#weather-data--table");
             });
         });
@@ -106,7 +106,7 @@ $(document).ready(function(){
                 var timestamp = "<td>" + properties["pubDate"] + "</td>";
                 var link = "<td>" + properties["link"] + "</td>";
 
-                var newItem = "<tr>" + title + timestamp + link + "</tr>";
+                var newItem = "<tr class='data-maps__table-data'>" + title + timestamp + link + "</tr>";
                 $(newItem).appendTo("#rivers-data--table");
             });
         });
@@ -127,7 +127,7 @@ $(document).ready(function(){
                 var timestamp = "<td>" + properties["pubDate"] + "</td>";
                 var link = "<td>" + properties["link"] + "</td>";
 
-                var newItem = "<tr>" + title + timestamp + link + "</tr>";
+                var newItem = "<tr class='data-maps__table-data'>" + title + timestamp + link + "</tr>";
                 $(newItem).appendTo("#tsunami-data--table");
             });
         });

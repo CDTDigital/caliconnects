@@ -1,13 +1,41 @@
-Fire
+<div class="admin__container">
 
-<div id="fires"></div>
-<div id="fire-data"></div>
-<table id="fire-data--table">
-  <tr>
-    <th>Description</th>
-    <th>Timestamp</th>
-    <th>Link</th>
-  </tr>
-</table>
+  <%= render partial: 'admin/shared/admin_sidebar' %>
 
-<div id="fire-url" style="display: none"><%= disaster_events_fires_url %></div>
+  <main class="admin__data-maps">
+
+    <section class="data-maps">
+      <div class="data-maps__title">Fire</div>
+
+      <div>
+        <button>Create New Campaign</button>
+        <button>Add to Existing Campaign</button>
+      </div>
+
+      <div class="data-maps__images">
+        <div class="data-maps__images-map">
+          <div class="data-maps__image-title">Current</div>
+          <div class="data-maps__image" id="fires"></div>
+        </div>
+
+        <div class="data-maps__images-map">
+          <div class="data-maps__image-title">Historical</div>
+          <div class="data-maps__image"></div>
+        </div>
+
+      </div>
+
+      <div id="fire-data"></div>
+      <table id="fire-data--table" class="usa-table-borderless">
+        <tr class="data-maps__table-data">
+          <th>Description</th>
+          <th>Timestamp</th>
+          <th>Link</th>
+        </tr>
+      </table>
+
+      <div id="fire-url" style="display: none"><%= disaster_events_fires_url %></div>
+
+    </section>
+  </main>
+</div>

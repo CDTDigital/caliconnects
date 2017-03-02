@@ -17,3 +17,7 @@
 .admin__add-alert {
   @include span-columns(6);
 }
+
+.admin__data-maps {
+    @include span-columns(10);
+}

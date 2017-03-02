@@ -15,24 +15,20 @@
 @import "show-campaign";
 @import "alert-form";
 @import "add-alert";
+@import "maps";
 
 // * {
 //  border: 2px solid red;
 // }
-
-#earthquakes, #fires, #rivers, #hazards, #tsunami {
-  height: 400px;
-  width: 600px;
-}
 
 html, body {
   height: 100%;
 }
 
 body {
-  background: linear-gradient(to bottom, #ffffff, #dce4ee);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  // background: linear-gradient(to bottom, #ffffff, #dce4ee);
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
 }
 
 [type=radio] {
