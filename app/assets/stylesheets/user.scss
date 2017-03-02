@@ -1,0 +1,66 @@
+.user {
+  @include span-columns(4);
+  padding: 20px;
+}
+
+@media screen and (min-width: 320px) and (max-width: $small-max){
+  .user {
+    @include span-columns(12);
+  }
+}
+
+@media screen and (min-width: $medium-min) and (max-width: $medium-max){
+  .user {
+    @include span-columns(8);
+  }
+}
+
+.user__title {
+  color: $color-primary;
+  font-family: $font-serif;
+  font-size: 2.5em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.user__detail {
+  font-family: $font-sans;
+  font-size: .9em;
+  color: $color-gray-light;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.user__medium-title {
+  font-family: $font-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.user__label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user__label-title {
+  margin-top: 0;
+  font-family: $font-sans;
+  font-size: .8em;
+}
+
+.user__box-area {
+  margin-bottom: 30px;
+}
+
+.user__input {
+  width: 100%;
+  max-width: 100%;
+}
+
+.user__label-required {
+  font-family: $font-sans;
+  font-size: .8em;
+  font-style: italic;
+}
