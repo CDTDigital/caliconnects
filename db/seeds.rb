@@ -9,3 +9,7 @@
 unless User.find_by(email: "alan@example.com")
   User.create(first_name: "Alan", last_name: "Admin", email: "alan@example.com", password: "password", phone: "5555555555", admin: true)
 end
+
+unless User.find_by(email: "brenda@example.com")
+  User.create(first_name: "Brenda", last_name: "User", email: "brenda@example.com", password: "password", phone: "5555555555", admin: false)
+end
