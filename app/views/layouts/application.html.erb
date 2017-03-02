@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CaliConnects</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag "application", media: 'all' %>
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="https://js.arcgis.com/4.2/esri/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/2.2.10/css/screen.css" />
-    <script src="https://js.arcgis.com/4.2/"></script>
-  </head>
+<head>
+  <title>CaliConnects</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag "application", media: 'all' %>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.2/esri/css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/2.2.10/css/screen.css"/>
+  <script src="https://js.arcgis.com/4.2/"></script>
+</head>
 
-  <body>
-    <div class="navbar">
-      <%= link_to root_path do %>
-          <div class="navbar__logo">
-          </div>
-          <div class="navbar__title">
-            California Connects Alert System
-          </div>
-          <% if current_user %>
-            <%= button_to "Log Out", destroy_user_session_path, method: :delete, style: "float: right" %>
-          <% end %>
+<body>
+<div class="navbar">
+  <%= link_to root_path do %>
+      <div class="navbar__logo">
+      </div>
+      <div class="navbar__title">
+        California Connects Alert System
+      </div>
+      <% if current_user %>
+          <%= button_to "Log Out", destroy_user_session_path, method: :delete, style: "float: right" %>
       <% end %>
+  <% end %>
+</div>
+
+<% if flash[:notice] %>
+    <div class="usa-alert usa-alert-success">
+      <div class="usa-alert-body">
+        <p class="usa-alert-text"><%= flash[:notice] %></p>
+      </div>
     </div>
+<% elsif flash[:alert] %>
+    <div class="usa-alert usa-alert-error">
+      <div class="usa-alert-body">
+        <p class="usa-alert-text"><%= flash[:alert] %></p>
+      </div>
+    </div>
+<% end %>
 
-    <% if flash[:notice] %>
-        <div class="usa-alert usa-alert-success"><%= flash[:notice] %></div>
-    <% elsif flash[:alert] %>
-        <div class="usa-alert usa-alert-error"><%= flash[:alert] %></div>
-    <% end %>
-
-    <%= yield %>
-  </body>
+<%= yield %>
+</body>
 </html>
