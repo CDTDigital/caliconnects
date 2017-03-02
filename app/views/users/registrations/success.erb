@@ -1,3 +1,14 @@
-thanks 4 registering
+<div class="signup-page__container">
 
-<%= button_to "View My Profile", edit_user_registration_path, method: :get %>
+  <div class="signup-page__title">
+    That's it, <%= current_user.first_name %>.
+  </div>
+
+  <div class="signup-page__details">
+    <p>Great job. One last reminder: when you receive future alerts, click that link like you just did.</p>
+    <p>You've completed your registration. It's our mission now to keep you informed of important safety issues so you and the people and things you care about stay safe.</p>
+  </div>
+
+  <%= button_to "View My Profile", edit_user_registration_path, method: :get %>
+
+</div>
