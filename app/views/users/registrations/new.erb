@@ -58,7 +58,7 @@
             <%= f.label :password, class: "signup-page__label-title" %>
             <div class="signup-page__label-required">Required</div>
           </div>
-          <%= f.password_field :password, autocomplete: "off", class: "signup-page__input"  %>
+          <%= f.password_field :password, autocomplete: "off", class: "signup-page__input" %>
         </div>
 
         <div class="signup-page__box-area">
@@ -66,7 +66,7 @@
             <%= f.label :password_confirmation, class: "signup-page__label-title" %>
             <div class="signup-page__label-required">Required</div>
           </div>
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: "signup-page__input"  %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "signup-page__input" %>
         </div>
 
         <div class="signup-page__box-buttons">
@@ -98,7 +98,7 @@
             <%= f.label :email, class: "signup-page__label-title" %>
             <div class="signup-page__label-required">Required</div>
           </div>
-          <%= f.text_field :email, class: "signup-page__input"  %>
+          <%= f.text_field :email, class: "signup-page__input" %>
         </div>
 
         <div class="signup-page__box-buttons">
@@ -167,7 +167,7 @@
             <%= label_tag :address, nil, class: "signup-page__label-title" %>
             <div class="signup-page__label-required">Required</div>
           </div>
-            <%= text_field_tag :address, "", id: "autocomplete", onFocus: "geolocate()" %>
+          <%= text_field_tag :address, "", id: "autocomplete", onFocus: "geolocate()" %>
         </div>
 
         <table id="address" class="signup-address-table">
@@ -216,15 +216,31 @@
 
         <div class="signup-page__details">
           <p>
-            When you get an alert, there will always be a link for more details. <b>Please, Please, Please, click this link</b> to get the details. This helps us know how many people are aware of the event, which helps to inform our next steps. Clicking the link helps both of us.
+            When you get an alert, there will always be a link for more details.
+            <b>Please, Please, Please, click this link</b> to get the details. This helps us know how many people are
+            aware of the event, which helps to inform our next steps. Clicking the link helps both of us.
           </p>
+
           <p><b>Let's practice this.</b></p>
-          <p>To complete your sign up, we will send you an SMS with a link. Click the link just like you would if it was a real alert.</p>
+
+          <p>To complete your sign up, we will send you an SMS with a link. Click the link just like you would if it was
+            a real alert.</p>
+
+
+          <div class="signup-page__terms">
+              <p>
+                The SMS verification also serves as your agreement to receive future notifications
+              </p>
+
+
+              <%= link_to "See terms and conditions", class: "signup-page__terms-link" %>
+          </div>
+
         </div>
 
         <div class="signup-page__box-buttons">
           <button id="signup-page__back-button" class="signup-page__back-button usa-button-primary">Back</button>
-          <button><%= f.submit "Sign up", class: "usa-button-primary", id: "signup-page__submit-button" %></button>
+          <%= f.submit "Sign up", class: "signup-page__submit-button usa-button-primary", id: "signup-page__submit-button" %>
         </div>
       </div>
 

@@ -81,8 +81,16 @@
   margin: 0;
 }
 
-#signup-page__submit-button {
+#signup-page__submit-button  {
   margin: 0;
+}
+
+.signup-page__terms {
+  font-size: .8em;
+  font-family: $font-sans;
+  a {
+    text-decoration: none;
+  }
 }
 
 .signup-page__container {
