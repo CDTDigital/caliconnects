@@ -67,4 +67,13 @@ describe "user sign up" do
 
     expect(Address.last.street).to eq "3 Alley Lane"
   end
+
+  it "has link to terms and conditions" do
+    visit new_user_registration_path
+
+    click_on "See terms and conditions"
+
+    expect(current_path).to eq terms_path
+    expect(page).to have_content "IBM plans to protect"
+  end
 end

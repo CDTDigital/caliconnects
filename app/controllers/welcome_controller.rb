@@ -14,4 +14,7 @@ class WelcomeController < ApplicationController
       alert.update(opened_total: (alert.opened_total += 1))
     end
   end
+
+  def terms
+  end
 end

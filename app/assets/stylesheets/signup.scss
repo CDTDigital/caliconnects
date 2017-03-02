@@ -20,7 +20,7 @@
 
 @media screen and (min-width: $large-min){
   .signup-page__container {
-      @include outer-container(20%);
+      @include outer-container(40%);
   }
 }
 
@@ -91,6 +91,18 @@
   a {
     text-decoration: none;
   }
+}
+
+.signup-page__terms-title {
+  font-size: 1.2em;
+  font-family: $font-sans;
+  color: $color-primary;
+  padding-top: 10px;
+}
+
+.signup-page__term-details {
+  font-size: .8em;
+  font-family: $font-sans;
 }
 
 .signup-page__container {

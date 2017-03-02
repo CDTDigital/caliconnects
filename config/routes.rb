@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   get "/preparedness" => "welcome#preparedness"
+  get "/terms" => "welcome#terms"
 
   get "disaster_events/earthquakes" => "disaster_events#earthquakes"
   get "disaster_events/fires" => "disaster_events#fires"
