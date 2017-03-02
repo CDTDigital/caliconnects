@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
-  before_action :authenticate_user!, only: [:success]
+  before_action :authenticate_scope!, except: [:new, :create, :confirmation]
 # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
