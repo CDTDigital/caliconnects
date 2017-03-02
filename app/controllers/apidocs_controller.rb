@@ -15,7 +15,7 @@ class ApidocsController < ApplicationController
       end
     end
     tag do
-      key :name, 'swagger'
+      key :name, 'California Connects'
       key :description, 'shiny fawn operations'
     end
     key :basePath, '/'
