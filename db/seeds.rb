@@ -13,3 +13,14 @@ end
 unless User.find_by(email: "brenda@example.com")
   User.create(first_name: "Brenda", last_name: "User", email: "brenda@example.com", password: "password", phone: "5555555555", admin: false)
 end
+
+unless User.find_by(email: "brenda@example.com").addresses.length >= 1
+  user = User.find_by(email: "brenda@example.com")
+  user.addresses.create(
+      id: user.id,
+      street: "44 Tehama Street",
+      zipcode: "94105",
+      state: "CA",
+      city: "San Francisco"
+  )
+end
