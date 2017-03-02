@@ -41,7 +41,7 @@ describe "user sign up" do
 
     visit user_success_path
 
-    expect(page).to have_content "thanks 4 registering"
+    expect(page).to have_content "Great job."
   end
 
   it "lets users enter an address without js" do
