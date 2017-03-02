@@ -1,17 +1,29 @@
 describe Admin::AlertsController do
   context "signed in admin" do
     let(:admin) { create(:user, admin: true) }
-    before(:each) do sign_in admin end
+    before(:each) do
+      sign_in admin
+    end
+
+    context "new" do
+      it "redirects to the index page if campaign not found" do
+        bad_campaign_id = 1
+
+        get :new, params: { campaign_id: bad_campaign_id }
+
+        expect(response).to redirect_to(admin_campaigns_path)
+      end
+    end
 
     context "create" do
       let(:campaign) { create(:campaign) }
       let!(:user) { create(:user) }
       let(:alert_description) { "take shelter" }
       let(:alert_params) { {
-          campaign_id: campaign.id,
-          alert: {
-              description: alert_description
-          }
+        campaign_id: campaign.id,
+        alert: {
+          description: alert_description
+        }
       } }
 
       it "creates an alert" do

@@ -27,7 +27,9 @@ class Admin::CampaignsController < ApplicationController
   end
 
   def show
-    @campaign = Campaign.find(params[:id])
+    @campaign = Campaign.find_by(id: params[:id])
+
+    redirect_to admin_campaigns_path, alert: "Campaign Not Found" unless @campaign
   end
 
   def destroy

@@ -29,6 +29,23 @@ describe "user profile management" do
 
     click_button "Save"
 
+    updated_user = User.find(user.id)
+
+    expect(updated_user.email).to eq "brenda_new@example.com"
+    expect(updated_user.phone).to eq "3375555555"
+
     expect(Address.last.street).to eq "5 Alley Lane"
+  end
+
+  it "does not change address if it is not modified" do
+    visit edit_user_registration_path
+
+    fill_in :user_email, with: "brenda_new@example.com"
+
+    fill_in :user_phone, with: "3375555555"
+
+    click_button "Save"
+
+    expect(Address.last.street).to eq "44 Happy Lane"
   end
 end

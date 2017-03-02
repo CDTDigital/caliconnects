@@ -1,12 +1,13 @@
 describe Admin::CampaignsController do
   context "signed in admin" do
     let(:admin) { create(:user, admin: true) }
-    let!(:user) { create(:user) }
     before(:each) do
       sign_in admin
     end
 
     context "create" do
+      let!(:user) { create(:user) }
+
       it "creates a campaign" do
         campaign_params = {
             campaign: {
@@ -46,7 +47,7 @@ describe Admin::CampaignsController do
       let(:campaign) { create(:campaign, archived: false) }
 
       it "archives a campaign" do
-        campaign_params = {id: campaign.id}
+        campaign_params = { id: campaign.id }
 
         delete :destroy, params: campaign_params
 
@@ -55,7 +56,18 @@ describe Admin::CampaignsController do
         expect(archived_campaign.archived).to be true
       end
     end
+
+    context "show" do
+      it "redirects to the index page if campaign not found" do
+        bad_campaign_id = 1
+
+        get :show, params: { id: bad_campaign_id }
+
+        expect(response).to redirect_to(admin_campaigns_path)
+      end
+    end
   end
+
 
   context "roles" do
     let(:nonadmin_user) { create(:user) }

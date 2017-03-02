@@ -2,7 +2,10 @@ class Admin::AlertsController < ApplicationController
   before_action :verify_is_admin
 
   def new
-    @campaign = Campaign.find(params[:campaign_id])
+    @campaign = Campaign.find_by(id: params[:campaign_id])
+
+    redirect_to admin_campaigns_path, alert: "Campaign Not Found" unless @campaign
+
     @alert = Alert.new
   end
 
