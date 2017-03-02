@@ -8,6 +8,7 @@ class Alert < ApplicationRecord
       key :type, :integer
       key :format, :int64
     end
+
     property :campaign_id do
       key :type, :integer
       key :format, :int64

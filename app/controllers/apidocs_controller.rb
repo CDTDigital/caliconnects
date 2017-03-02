@@ -5,10 +5,10 @@ class ApidocsController < ApplicationController
     key :swagger, '2.0'
     info do
       key :version, '1.0.0'
-      key :title, 'swagger title'
-      key :description, 'swagger description'
+      key :title, 'California Connects Alerts System'
+      key :description, 'Provides emergency and non-emergency alerts to California Residents'
       contact do
-        key :name, 'bluemix garage'
+        key :name, 'the IBM Bluemix Garage'
       end
       license do
         key :name, 'MIT'
@@ -18,13 +18,12 @@ class ApidocsController < ApplicationController
       key :name, 'swagger'
       key :description, 'shiny fawn operations'
     end
-    key :basePath, '/api'
+    key :basePath, '/'
     key :consumes, ['application/json']
     key :produces, ['application/json']
   end
 
   SWAGGERED_CLASSES = [
-    Admin::CampaignsController,
     AlertsController,
     Alert,
     self

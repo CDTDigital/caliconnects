@@ -24,7 +24,7 @@ class AlertsController < ApplicationController
   end
 
   def index
-    @alerts = Alert.all
+    @alerts = Alert.all.order(created_at: :desc)
 
     render json: @alerts
   end
