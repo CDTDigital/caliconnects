@@ -1,6 +1,3 @@
-/**
- * Created by sfgarage on 2/27/17.
- */
 var loadMap = function loadMap(url, containerId) {
     require([
         "esri/Map",

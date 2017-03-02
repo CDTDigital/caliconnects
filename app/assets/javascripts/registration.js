@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
     if($("#signup-marker").length > 0) {
         window.location = "#1";
 
@@ -13,7 +12,9 @@ $(document).ready(function(){
             $(currPageSelector).show();
         };
 
-        var moveToNextPage = function(){
+        var moveToNextPage = function(e){
+            e.preventDefault();
+
             var visible = $(".signup-page:visible").attr("data-pagenumber");
             var currPageNumber = Number(visible);
             var nextPageNumber = currPageNumber + 1;
@@ -36,13 +37,23 @@ $(document).ready(function(){
             }
         };
 
-        var moveToPreviousPage = function() {
+        var moveToPreviousPage = function(e) {
+            e.preventDefault();
+
             var visible = $(".signup-page:visible").attr("data-pagenumber");
             var currPageNumber = Number(visible);
 
             window.location = "#" + (currPageNumber - 1);
 
             showUrlPage();
+        };
+
+        var greetUser = function(){
+            $("#user_first_name").blur(function(){
+                var name = $(this).val();
+
+                $("#signup-page__user-greeting").empty().append(name);
+            })
         };
 
         $(".signup-page__next-button").on("click", moveToNextPage);
@@ -52,5 +63,7 @@ $(document).ready(function(){
         $(window).bind('hashchange', showUrlPage);
 
         $("input").keypress(clickTheNextButton);
+
+        greetUser();
     }
 });

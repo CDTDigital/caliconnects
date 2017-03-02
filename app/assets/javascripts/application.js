@@ -27,4 +27,4 @@ $(function() {
     var len = $(this).val().length;
     $('#character-count').text(len);    
   })
-})
+});

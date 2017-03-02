@@ -1,6 +1,3 @@
-/**
- * Created by sfgarage on 2/28/17.
- */
 $(document).ready(function(){
     if($("#admin-alert-marker").length > 0) {
         $(".location-container").hide();

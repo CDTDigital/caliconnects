@@ -1,3 +1,236 @@
+<div class="signup-page__container">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), validate: true) do |f| %>
+
+      <div class="signup-page" id="signup-page-1" data-pagenumber="1">
+        <div class="signup-page__progress-bar">
+          <div class="signup-page__icon-1-active"></div>
+          <div class="signup-page__icon-2"></div>
+          <div class="signup-page__icon-3"></div>
+          <div class="signup-page__icon-4"></div>
+          <div class="signup-page__icon-5"></div>
+
+          <div class="signup-page__icon-7"></div>
+        </div>
+
+        <%= devise_error_messages! %>
+
+        <div class="signup-page__title">
+          Can we call you by name?
+        </div>
+
+        <div class="signup-page__box-area">
+          <div class="signup-page__label">
+            <%= f.label :first_name, class: "signup-page__label-title" %>
+            <div class="signup-page__label-required">Required</div>
+          </div>
+          <%= f.text_field :first_name, autofocus: true, class: "signup-page__input" %>
+        </div>
+
+        <div class="signup-page__box-area">
+          <div class="signup-page__label">
+            <%= f.label :last_name, class: "signup-page__label-title" %>
+            <div class="signup-page__label-required">Required</div>
+          </div>
+          <%= f.text_field :last_name, class: "signup-page__input" %>
+        </div>
+
+        <button id="signup-page__next-button" class="signup-page__next-button usa-button-primary">Next</button>
+
+      </div>
+
+      <div class="signup-page" id="signup-page-2" data-pagenumber="2">
+        <div class="signup-page__progress-bar">
+          <div class="signup-page__icon-1"></div>
+          <div class="signup-page__icon-2-active"></div>
+          <div class="signup-page__icon-3"></div>
+          <div class="signup-page__icon-4"></div>
+          <div class="signup-page__icon-5"></div>
+
+          <div class="signup-page__icon-7"></div>
+        </div>
+
+        <div class="signup-page__title">
+          <p>Hey, <span id="signup-page__user-greeting">Brenda</span></p>
+        </div>
+
+        <div class="signup-page__box-area">
+          <div class="signup-page__label">
+            <%= f.label :password, class: "signup-page__label-title" %>
+            <div class="signup-page__label-required">Required</div>
+          </div>
+          <%= f.password_field :password, autocomplete: "off", class: "signup-page__input"  %>
+        </div>
+
+        <div class="signup-page__box-area">
+          <div class="signup-page__label">
+            <%= f.label :password_confirmation, class: "signup-page__label-title" %>
+            <div class="signup-page__label-required">Required</div>
+          </div>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "signup-page__input"  %>
+        </div>
+
+        <div class="signup-page__box-buttons">
+          <button id="signup-page__back-button" class="signup-page__back-button usa-button-primary">Back</button>
+          <button id="signup-page__next-button" class="signup-page__next-button usa-button-primary">Next</button>
+
+        </div>
+
+      </div>
+
+      <div class="signup-page" id="signup-page-3" data-pagenumber="3">
+        <div class="signup-page__progress-bar">
+          <div class="signup-page__icon-1"></div>
+          <div class="signup-page__icon-2"></div>
+          <div class="signup-page__icon-3-active"></div>
+          <div class="signup-page__icon-4"></div>
+          <div class="signup-page__icon-5"></div>
+
+          <div class="signup-page__icon-7"></div>
+        </div>
+
+
+        <div class="signup-page__title">
+          We'll need your email.
+        </div>
+
+        <div class="signup-page__box-area">
+          <div class="signup-page__label">
+            <%= f.label :email, class: "signup-page__label-title" %>
+            <div class="signup-page__label-required">Required</div>
+          </div>
+          <%= f.text_field :email, class: "signup-page__input"  %>
+        </div>
+
+        <div class="signup-page__box-buttons">
+          <button id="signup-page__back-button" class="signup-page__back-button usa-button-primary">Back</button>
+          <button id="signup-page__next-button" class="signup-page__next-button usa-button-primary">Next</button>
+        </div>
+
+
+      </div>
+
+      <div class="signup-page" id="signup-page-4" data-pagenumber="4">
+        <div class="signup-page__progress-bar">
+          <div class="signup-page__icon-1"></div>
+          <div class="signup-page__icon-2"></div>
+          <div class="signup-page__icon-3"></div>
+          <div class="signup-page__icon-4-active"></div>
+          <div class="signup-page__icon-5"></div>
+
+          <div class="signup-page__icon-7"></div>
+        </div>
+
+        <div class="signup-page__title">
+          And your digits too, please.
+        </div>
+
+        <div class="signup-page__details">
+          We will use this phone number to send SMS based alerts, but only if its relevant to you.
+        </div>
+
+        <div class="signup-page__box-area">
+          <div class="signup-page__label">
+            <%= f.label :phone, class: "signup-page__label-title" %>
+            <div class="signup-page__label-required">Required</div>
+          </div>
+          <%= f.telephone_field :phone, class: "signup-page__input", maxlength: 10 %>
+        </div>
+
+        <div class="signup-page__box-buttons">
+          <button id="signup-page__back-button" class="signup-page__back-button usa-button-primary">Back</button>
+          <button id="signup-page__next-button" class="signup-page__next-button usa-button-primary">Next</button>
+        </div>
+
+      </div>
+
+      <div class="signup-page" id="signup-page-5" data-pagenumber="5">
+        <div class="signup-page__progress-bar">
+          <div class="signup-page__icon-1"></div>
+          <div class="signup-page__icon-2"></div>
+          <div class="signup-page__icon-3"></div>
+          <div class="signup-page__icon-4"></div>
+          <div class="signup-page__icon-5-active"></div>
+
+          <div class="signup-page__icon-7"></div>
+        </div>
+
+        <div class="signup-page__title">
+          Home, Sweet Home.
+        </div>
+
+        <div class="signup-page__details">
+          What is your home address? We want to make sure it is safe from anything that can damage it.
+        </div>
+
+        <div class="signup-page__box-area">
+          <div class="signup-page__label">
+            <%= label_tag :address, nil, class: "signup-page__label-title" %>
+            <div class="signup-page__label-required">Required</div>
+          </div>
+            <%= text_field_tag :address, "", id: "autocomplete", onFocus: "geolocate()" %>
+        </div>
+
+        <table id="address" class="signup-address-table">
+          <tr>
+            <td class="label">Street address</td>
+            <td class="slimField"><input class="field" name="street" id="street_number"></input></td>
+            <td class="wideField" colspan="2"><input class="field" name="route" id="route"></input></td>
+          </tr>
+          <tr>
+            <td class="label">City</td>
+            <td class="wideField" colspan="3"><input class="field" name="city" id="locality"></input></td>
+          </tr>
+          <tr>
+            <td class="label">State</td>
+            <td class="slimField"><input class="field" name="state" id="administrative_area_level_1"></input></td>
+            <td class="label">Zip code</td>
+            <td class="wideField"><input class="field" name="zipcode" id="postal_code"></input></td>
+          </tr>
+          <tr>
+            <td class="label">Country</td>
+            <td class="wideField" colspan="3"><input class="field" id="country"></input></td>
+          </tr>
+        </table>
+
+        <div class="signup-page__box-buttons">
+          <button id="signup-page__back-button" class="signup-page__back-button usa-button-primary">Back</button>
+          <button id="signup-page__next-button" class="signup-page__next-button usa-button-primary">Next</button>
+        </div>
+
+      </div>
+
+      <div class="signup-page" id="signup-page-6" data-pagenumber="6">
+        <div class="signup-page__progress-bar">
+          <div class="signup-page__icon-1"></div>
+          <div class="signup-page__icon-2"></div>
+          <div class="signup-page__icon-3"></div>
+          <div class="signup-page__icon-4"></div>
+          <div class="signup-page__icon-5"></div>
+
+          <div class="signup-page__icon-7-active"></div>
+        </div>
+
+        <div class="signup-page__title">
+          This is really, really important
+        </div>
+
+        <div class="signup-page__details">
+          <p>
+            When you get an alert, there will always be a link for more details. <b>Please, Please, Please, click this link</b> to get the details. This helps us know how many people are aware of the event, which helps to inform our next steps. Clicking the link helps both of us.
+          </p>
+          <p><b>Let's practice this.</b></p>
+          <p>To complete your sign up, we will send you an SMS with a link. Click the link just like you would if it was a real alert.</p>
+        </div>
+
+        <div class="signup-page__box-buttons">
+          <button id="signup-page__back-button" class="signup-page__back-button usa-button-primary">Back</button>
+          <button><%= f.submit "Sign up", class: "usa-button-primary", id: "signup-page__submit-button" %></button>
+        </div>
+      </div>
+
+  <% end %>
+</div>
+
 <script>
     // This example displays an address form, using the autocomplete feature
     // of the Google Places API to help users fill in the information.
@@ -66,243 +299,6 @@
         }
     }
 </script>
-
-
-<div class="signup-page__container">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), validate: true) do |f| %>
-
-      <div class="signup-page" id="signup-page-1" data-pagenumber="1">
-        <div class="signup-page__progress-bar">
-          <div class="signup-page__icon-1-active"></div>
-          <div class="signup-page__icon-2"></div>
-          <div class="signup-page__icon-3"></div>
-          <div class="signup-page__icon-4"></div>
-          <div class="signup-page__icon-5"></div>
-
-          <div class="signup-page__icon-7"></div>
-        </div>
-
-        <%= devise_error_messages! %>
-
-        <div class="signup-page__title">
-          Can we call you by name?
-        </div>
-
-        <div class="signup-page__box-area">
-          <div class="signup-page__label">
-            <%= f.label :first_name, class: "signup-page__label-title" %>
-            <div class="signup-page__label-required">Required</div>
-          </div>
-          <%= f.text_field :first_name, autofocus: true, class: "signup-page__input" %>
-        </div>
-
-        <div class="signup-page__box-area">
-          <div class="signup-page__label">
-            <%= f.label :last_name, class: "signup-page__label-title" %>
-            <div class="signup-page__label-required">Required</div>
-          </div>
-          <%= f.text_field :last_name, class: "signup-page__input" %>
-        </div>
-
-        
-        <div id="signup-page__next-button" class="signup-page__next-button usa-button-primary">Next</div>
-
-
-      </div>
-
-      <div class="signup-page" id="signup-page-2" data-pagenumber="2">
-        <div class="signup-page__progress-bar">
-          <div class="signup-page__icon-1"></div>
-          <div class="signup-page__icon-2-active"></div>
-          <div class="signup-page__icon-3"></div>
-          <div class="signup-page__icon-4"></div>
-          <div class="signup-page__icon-5"></div>
-
-          <div class="signup-page__icon-7"></div>
-        </div>
-
-        <div class="signup-page__title">
-          Hey, Brenda.
-        </div>
-
-        <div class="signup-page__box-area">
-          <div class="signup-page__label">
-            <%= f.label :password, class: "signup-page__label-title" %>
-            <div class="signup-page__label-required">Required</div>
-          </div>
-          <%= f.password_field :password, autocomplete: "off", class: "signup-page__input"  %>
-        </div>
-
-        <div class="signup-page__box-area">
-          <div class="signup-page__label">
-            <%= f.label :password_confirmation, class: "signup-page__label-title" %>
-            <div class="signup-page__label-required">Required</div>
-          </div>
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: "signup-page__input"  %>
-        </div>
-
-        <div class="signup-page__box-buttons">
-          <div id="signup-page__back-button" class="signup-page__back-button usa-button-primary">Back</div>
-          <div id="signup-page__next-button" class="signup-page__next-button usa-button-primary">Next</div>
-
-        </div>
-
-      </div>
-
-      <div class="signup-page" id="signup-page-3" data-pagenumber="3">
-        <div class="signup-page__progress-bar">
-          <div class="signup-page__icon-1"></div>
-          <div class="signup-page__icon-2"></div>
-          <div class="signup-page__icon-3-active"></div>
-          <div class="signup-page__icon-4"></div>
-          <div class="signup-page__icon-5"></div>
-
-          <div class="signup-page__icon-7"></div>
-        </div>
-
-
-        <div class="signup-page__title">
-          We'll need your email.
-        </div>
-
-        <div class="signup-page__box-area">
-          <div class="signup-page__label">
-            <%= f.label :email, class: "signup-page__label-title" %>
-            <div class="signup-page__label-required">Required</div>
-          </div>
-          <%= f.text_field :email, class: "signup-page__input"  %>
-        </div>
-
-        <div class="signup-page__box-buttons">
-          <div id="signup-page__back-button" class="signup-page__back-button usa-button-primary">Back</div>
-          <div id="signup-page__next-button" class="signup-page__next-button usa-button-primary">Next</div>
-        </div>
-
-
-      </div>
-
-      <div class="signup-page" id="signup-page-4" data-pagenumber="4">
-        <div class="signup-page__progress-bar">
-          <div class="signup-page__icon-1"></div>
-          <div class="signup-page__icon-2"></div>
-          <div class="signup-page__icon-3"></div>
-          <div class="signup-page__icon-4-active"></div>
-          <div class="signup-page__icon-5"></div>
-
-          <div class="signup-page__icon-7"></div>
-        </div>
-
-        <div class="signup-page__title">
-          And your digits too, please.
-        </div>
-
-        <div class="signup-page__details">
-          We will use this phone number to send SMS based alerts, but only if its relevant to you.
-        </div>
-
-        <div class="signup-page__box-area">
-          <div class="signup-page__label">
-            <%= f.label :phone, class: "signup-page__label-title" %>
-            <div class="signup-page__label-required">Required</div>
-          </div>
-          <%= f.telephone_field :phone, class: "signup-page__input", maxlength: 10 %>
-        </div>
-
-        <div class="signup-page__box-buttons">
-          <div id="signup-page__back-button" class="signup-page__back-button usa-button-primary">Back</div>
-          <div id="signup-page__next-button" class="signup-page__next-button usa-button-primary">Next</div>
-        </div>
-
-      </div>
-
-      <div class="signup-page" id="signup-page-5" data-pagenumber="5">
-        <div class="signup-page__progress-bar">
-          <div class="signup-page__icon-1"></div>
-          <div class="signup-page__icon-2"></div>
-          <div class="signup-page__icon-3"></div>
-          <div class="signup-page__icon-4"></div>
-          <div class="signup-page__icon-5-active"></div>
-
-          <div class="signup-page__icon-7"></div>
-        </div>
-
-        <div class="signup-page__title">
-          Home, Sweet Home.
-        </div>
-
-        <div class="signup-page__details">
-          What is your home address? We want to make sure it is safe from anything that can damage it.
-        </div>
-
-        <div class="signup-page__box-area">
-          <div class="signup-page__label">
-            <%= label_tag :address, nil, class: "signup-page__label-title" %>
-            <div class="signup-page__label-required">Required</div>
-          </div>
-            <%= text_field_tag :address, "", id: "autocomplete", onFocus: "geolocate()" %>
-        </div>
-
-        <table id="address" class="signup-address-table">
-          <tr>
-            <td class="label">Street address</td>
-            <td class="slimField"><input class="field" name="street" id="street_number"></input></td>
-            <td class="wideField" colspan="2"><input class="field" name="route" id="route"></input></td>
-          </tr>
-          <tr>
-            <td class="label">City</td>
-            <td class="wideField" colspan="3"><input class="field" name="city" id="locality"></input></td>
-          </tr>
-          <tr>
-            <td class="label">State</td>
-            <td class="slimField"><input class="field" name="state" id="administrative_area_level_1"></input></td>
-            <td class="label">Zip code</td>
-            <td class="wideField"><input class="field" name="zipcode" id="postal_code"></input></td>
-          </tr>
-          <tr>
-            <td class="label">Country</td>
-            <td class="wideField" colspan="3"><input class="field" id="country"></input></td>
-          </tr>
-        </table>
-
-        <div class="signup-page__box-buttons">
-          <div id="signup-page__back-button" class="signup-page__back-button usa-button-primary">Back</div>
-          <div id="signup-page__next-button" class="signup-page__next-button usa-button-primary">Next</div>
-        </div>
-
-      </div>
-
-      <div class="signup-page" id="signup-page-6" data-pagenumber="6">
-        <div class="signup-page__progress-bar">
-          <div class="signup-page__icon-1"></div>
-          <div class="signup-page__icon-2"></div>
-          <div class="signup-page__icon-3"></div>
-          <div class="signup-page__icon-4"></div>
-          <div class="signup-page__icon-5"></div>
-
-          <div class="signup-page__icon-7-active"></div>
-        </div>
-
-        <div class="signup-page__title">
-          This is really, really important
-        </div>
-
-        <div class="signup-page__details">
-          <p>
-            When you get an alert, there will always be a link for more details. <b>Please, Please, Please, click this link</b> to get the details. This helps us know how many people are aware of the event, which helps to inform our next steps. Clicking the link helps both of us.
-          </p>
-          <p><b>Let's practice this.</b></p>
-          <p>To complete your sign up, we will send you an SMS with a link. Click the link just like you would if it was a real alert.</p>
-        </div>
-
-        <div class="signup-page__box-buttons">
-          <div id="signup-page__back-button" class="signup-page__back-button usa-button-primary">Back</div>
-          <div><%= f.submit "Sign up", class: "usa-button-primary", id: "signup-page__submit-button" %></div>
-        </div>
-      </div>
-
-  <% end %>
-
-</div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_KEY"] %>&libraries=places&callback=initAutocomplete" async defer></script>
 
