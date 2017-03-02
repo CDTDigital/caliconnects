@@ -32,6 +32,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     super do |user|
       user.addresses.first.update(address_params) if user.addresses.first
+
+      user.addresses.create(address_params) if (address_params_present? && !user.addresses.first)
     end
   end
 
