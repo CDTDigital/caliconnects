@@ -1,0 +1,49 @@
+.show-campaign {
+  padding: 5%;
+}
+
+.show-campaign__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.show-campaign__header-title-label {
+  color: $color-primary;
+  font-weight: bold;
+  font-size: .8em;
+}
+
+.show-campaign__header-title {
+  color: $color-primary;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.show-campaign__header-button {
+  background: none;
+  color: $color-primary;
+}
+
+.show-campaign__alert-title {
+  color: $color-primary;
+  font-weight: bold;
+  font-size: .8em;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.show-campaign__alert-detail {
+  color: $color-black;
+  font-size: .8em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.show-campaign__alert-list {
+  padding: 0
+}
+
+.ui-state-active {
+  background: red;
+}

@@ -9,3 +9,7 @@
 .admin__new-campaign {
   @include span-columns(6);
 }
+
+.admin__show-campaign  {
+  @include span-columns(8);
+}

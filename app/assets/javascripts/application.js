@@ -13,6 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require jquery-ui/widgets/accordion
 //= require swagger-ui
 //= require rails.validations
 //= require_tree .
+
+$(function() {
+    $( "#accordion" ).accordion();
+});

@@ -52,7 +52,7 @@ describe "campaign" do
     it "admin can end campaigns" do
       visit admin_campaign_path(campaign)
 
-      click_on "end campaign"
+      click_on "End campaign"
 
       expect(page).to have_content "Campaign Archived"
     end
