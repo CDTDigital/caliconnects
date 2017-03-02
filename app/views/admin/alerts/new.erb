@@ -1,7 +1,24 @@
 <h1>Create Alert for campaign  <%= @campaign.name.capitalize + ", " + @campaign.formatted_date %></h1>
 
-<%= form_for [:admin, @campaign, @alert] do |f| %>
-    <%= render partial: 'admin/shared/alert_form', :locals => {:form => f} %>
+<div class="admin__container">
 
-    <%= f.submit "Send Notification" %>
-<% end %>
+  <%= render partial: 'admin/shared/admin_sidebar' %>
+
+  <main class="admin__add-alert">
+
+    <section class="add-alert">
+
+      <div class="add-alert__title">
+        Create Alert for <%= @campaign.name.capitalize %>
+      </div>
+
+      <%= form_for [:admin, @campaign, @alert] do |f| %>
+        <%= render partial: 'admin/shared/alert_form', :locals => {:form => f} %>
+        <%= f.submit "Send Notification" %>
+      <% end %>
+
+    </section>
+
+  </main>
+
+</div>

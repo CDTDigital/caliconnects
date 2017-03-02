@@ -13,3 +13,7 @@
 .admin__show-campaign  {
   @include span-columns(8);
 }
+
+.admin__add-alert {
+  @include span-columns(6);
+}
