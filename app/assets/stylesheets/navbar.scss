@@ -1,26 +1,55 @@
 .navbar {
   height: 65px;
   border-bottom: 15px solid #fdb81e;
+  display: flex;
+  justify-content: space-between;
 
-  a {
-    align-items: center;
-    display: flex;
+  .navbar__root-wrapper {
     height: 100%;
     text-decoration: none;
+    @include span-columns(10);
+    display: flex;
+    align-items: center;
+
+    .navbar__logo {
+      @include span-columns(1);
+      background: image_url('ca-logo@2x.png') no-repeat center;
+      background-size: contain;
+      max-width: 100%;
+      height: 100%;
+    }
+
+    .navbar__title {
+      @include span-columns(9);
+      font-family: $font-serif;
+      color: $color-primary;
+      height: 40%;
+    }
   }
 
-  .navbar__logo {
-    @include span-columns(.7);
-    background: image_url('ca-logo@2x.png') no-repeat center;
+  .navbar__buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar__logout {
+    display: inline-block;
+
+    input {
+      margin: 0 10px;
+    }
+  }
+
+  .navbar__help {
+    display: inline-block;
+    background: image_url("info.svg") no-repeat;
     background-size: contain;
-    max-width: 100%;
-    height: 100%;
-  }
+    height: 25px;
+    width: 30px;
 
-  .navbar__title {
-    @include span-columns(11.3);
-    font-family: $font-serif;
-    color: $color-primary;
+    a {
+      opacity: 0;
+    }
   }
 
   @include media($small-max-b){
@@ -30,3 +59,4 @@
   }
 
 }
+

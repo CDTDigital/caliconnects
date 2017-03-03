@@ -17,4 +17,7 @@ class WelcomeController < ApplicationController
 
   def terms
   end
+
+  def help
+  end
 end

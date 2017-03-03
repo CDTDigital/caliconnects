@@ -29,4 +29,20 @@ describe "welcome" do
       expect(page).to have_content("be prepared!")
     end
   end
+
+  it "links to the sign up page" do
+    visit root_path
+
+    click_link 'help'
+
+    expect(current_path).to eq help_path
+
+    fill_in :subject, with: "Subject"
+
+    fill_in :question, with: "I have a question"
+
+    click_button "Send"
+
+    expect(status_code).to eq 200
+  end
 end
