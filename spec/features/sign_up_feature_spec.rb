@@ -36,7 +36,7 @@ describe "user sign up" do
 
     click_button "Sign up"
 
-    expect(page).to have_content "check ur phone"
+    expect(page).to have_content "Great! Check your phone for your confirmation."
     expect(current_path).to eq user_confirmation_path
 
     visit user_success_path

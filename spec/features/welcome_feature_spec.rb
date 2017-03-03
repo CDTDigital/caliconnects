@@ -26,7 +26,7 @@ describe "welcome" do
     it "has a preparedness page" do
       visit preparedness_path
 
-      expect(page).to have_content("be prepared!")
+      expect(page).to have_content("Be Prepared")
     end
   end
 
