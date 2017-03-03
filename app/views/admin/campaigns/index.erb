@@ -20,23 +20,26 @@
             <th class="active-campaigns__table-header"># of notifications sent in Campaign</th>
             <th class="active-campaigns__table-header">Time Stamp</th>
             <th class="active-campaigns__table-header">Create</th>
-            <th class="active-campaigns__table-header">Show</th>
+            <th class="active-campaigns__table-header">View</th>
             <th class="active-campaigns__table-header">Delete</th>
           </tr>
         </thead>
         <tbody>
             <% @campaigns.each do |campaign| %>
+                <% alerts = campaign.alerts %>
                 <tr>
                   <td class="active-campaigns__table-item-color"></td>
                   <td class="active-campaigns__table-item">
-                    <%= to_human_readable(campaign.alerts.last.severity) unless campaign.alerts.empty? %>
+                    <%= to_human_readable(alerts.last.severity) unless alerts.empty? %>
                   </td>
                   <td class="active-campaigns__table-item">
                     <%= campaign.name.capitalize %>
                   </td>
                   <td class="active-campaigns__table-item">
+                    <%= to_human_readable(alerts.last.received_total) unless alerts.empty? %>
                   </td>
                   <td class="active-campaigns__table-item">
+                    <%= to_human_readable(alerts.count) unless alerts.empty? %>
                   </td>
                   <td class="active-campaigns__table-item">
                     <%= campaign.formatted_date %>
@@ -45,7 +48,7 @@
                     <%= link_to "create alert", new_admin_campaign_alert_path(campaign.id), method: :get %>
                   </td>
                   <td class="active-campaigns__table-item">
-                    <%= link_to "show", admin_campaign_path(campaign.id), method: :get %>
+                    <%= link_to "view", admin_campaign_path(campaign.id), method: :get %>
                   </td>
                   <td class="active-campaigns__table-item">
                     <%= link_to "end campaign", admin_campaign_path(campaign.id), method: :delete %>

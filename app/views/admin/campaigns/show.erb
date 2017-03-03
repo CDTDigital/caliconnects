@@ -6,36 +6,41 @@
 
     <section class="show-campaign">
 
-    <div class="show-campaign__header">
-      <div>
-        <div class="show-campaign__header-title-label">Campaign name</div>
-        <div class="show-campaign__header-title"><%= @campaign.name %></div>
+      <div class="show-campaign__header">
+        <div>
+          <div class="show-campaign__header-title-label">Campaign name</div>
+          <div class="show-campaign__header-title"><%= @campaign.name %></div>
+        </div>
+        <%= button_to "End campaign", admin_campaign_path(@campaign), method: :delete, class: "show-campaign__header-button" %>
       </div>
-      <%= button_to "End campaign", admin_campaign_path(@campaign.id), method: :delete, class: "show-campaign__header-button" %>
-    </div>
 
-    <ul class="show-campaign__alert-list">
-      <div id="accordion">
+      <%= button_to "Create Notification", new_admin_campaign_alert_path(@campaign), method: :get %>
+
+      <ul class="show-campaign__alert-list">
+        <div id="accordion">
 
           <% @campaign.alerts.each do |alert| %>
-                <h1> alert date and time </h1>
-                <div>
-                  <li>
-                    <div class="show-campaign__alert-title">SMS Message:</div>
-                      <p class="show-campaign__alert-detail"><%= alert.description + ", " + to_human_readable(alert.severity)%></p>
+              <h1> alert date and time </h1>
 
-                    <div class="show-campaign__alert-title">Location Designation:</div>
+              <div>
+                <li>
+                  <div class="show-campaign__alert-title">SMS Message:</div>
+                  <p class="show-campaign__alert-detail"><%= alert.description + ", " + to_human_readable(alert.severity) %></p>
 
-                    <div class="show-campaign__alert-title">Recipient Analytics:</div>
-                      <p class="show-campaign__alert-detail"><%= "Total Recipients: " + alert.received_total.to_s %></p>
-                      <p class="show-campaign__alert-detail"><%= "Confirmed: " + alert.opened_total.to_s %></p>
-                      <p class="show-campaign__alert-detail"><%= "Not Confirmed: " + (alert.received_total - alert.opened_total).to_s %></p>
+                  <div class="show-campaign__alert-title">Location Designation:</div>
 
-                  </li>
-                </div>
+                  <div class="show-campaign__alert-title">Recipient Analytics:</div>
+                  <p class="show-campaign__alert-detail"><%= "Total Recipients: " + alert.received_total.to_s %></p>
+
+                  <p class="show-campaign__alert-detail"><%= "Confirmed: " + alert.opened_total.to_s %></p>
+
+                  <p class="show-campaign__alert-detail"><%= "Not Confirmed: " + (alert.received_total - alert.opened_total).to_s %></p>
+
+                </li>
+              </div>
           <% end %>
         </div>
-    </ul>
+      </ul>
 
     </section>
 

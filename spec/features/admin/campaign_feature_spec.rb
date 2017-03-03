@@ -19,6 +19,7 @@ describe "campaign" do
       click_on 'Send Notification'
 
       campaign = Campaign.last
+      alert = Alert.last
 
       expect(current_path).to eq admin_campaigns_path
 
@@ -27,6 +28,9 @@ describe "campaign" do
       within("#active-campaigns") do
         expect(page).to have_content Time.now.strftime("%A, %d %b %Y %H:%M %p")
         expect(page).to have_content "blueberry pie".capitalize
+
+        expect(page).to have_content campaign.alerts.count
+        expect(page).to have_content alert.received_total
 
         expect(page).to have_content "Voluntary Evacuation"
       end
@@ -40,13 +44,21 @@ describe "campaign" do
     it "lets the admin view details for a campaign and its alerts" do
       visit admin_campaigns_path
 
-      click_on "show"
+      click_on "view"
 
       expect(current_path).to eq admin_campaign_path(campaign)
 
       expect(page).to have_content "Total Recipients: " + alert.received_total.to_s
       expect(page).to have_content "Confirmed: " + alert.opened_total.to_s
       expect(page).to have_content "Not Confirmed: " + (alert.received_total - alert.opened_total).to_s
+    end
+
+    it "lets the admin create alerts" do
+      visit admin_campaign_path(campaign)
+
+      click_button "Create Notification"
+
+      expect(current_path).to eq(new_admin_campaign_alert_path(campaign))
     end
 
     it "admin can end campaigns" do
