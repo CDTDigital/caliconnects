@@ -17,7 +17,6 @@ end
 unless User.find_by(email: "brenda@example.com").addresses.length >= 1
   user = User.find_by(email: "brenda@example.com")
   user.addresses.create(
-      id: user.id,
       street: "44 Tehama Street",
       zipcode: "94105",
       state: "CA",
