@@ -26,7 +26,7 @@ describe "campaign" do
       expect(page).to have_content "Campaign Created"
 
       within("#active-campaigns") do
-        expect(page).to have_content Time.now.strftime("%A, %d %b %Y %H:%M %p")
+        expect(page).to have_content Time.now.in_time_zone("Pacific Time (US & Canada)").strftime("%A, %d %b %Y %H:%M %p")
         expect(page).to have_content "blueberry pie".capitalize
 
         expect(page).to have_content campaign.alerts.count
