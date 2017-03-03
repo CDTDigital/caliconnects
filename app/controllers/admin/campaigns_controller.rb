@@ -25,7 +25,7 @@ class Admin::CampaignsController < ApplicationController
       redirect_to admin_campaigns_path, notice: "Campaign Created"
 
       if alert.save
-        alert.send_notifications(alert_params, preparedness_url)
+        alert.send_notifications(params, preparedness_url)
       end
     end
   end

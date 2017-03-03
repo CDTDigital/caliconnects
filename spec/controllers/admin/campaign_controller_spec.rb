@@ -41,6 +41,29 @@ describe Admin::CampaignsController do
 
         expect(new_sms).to have_received(:send_message).with(user.phone, expected_sms_body)
       end
+
+      it "only notifies users in the target area" do
+        new_sms = double
+
+        allow(SmsService).to receive(:new).and_return(new_sms)
+        allow(new_sms).to receive(:send_message)
+
+        campaign_params = {
+          campaign: {
+            category: "earthquake",
+            alerts: {
+              description: "take shelter"
+            }
+          },
+          city: "denver"
+        }
+
+        post :create, params: campaign_params
+
+        expected_sms_body = "Alert from California Connects: " + "take shelter -- click here for more info: " + preparedness_url + "?id=" + Alert.last.id.to_s
+
+        expect(new_sms).to_not have_received(:send_message).with(user.phone, expected_sms_body)
+      end
     end
 
     context "destroy" do
