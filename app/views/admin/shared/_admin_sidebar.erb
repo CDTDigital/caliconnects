@@ -1,9 +1,11 @@
+<a class="skip-link" href="#main">Skip to main content</a>
+
 <nav class="sidebar">
   <div class="sidebar__notification-title">Notification Campaigns</div>
   <ul class="sidebar__notification-list">
-    <li class="sidebar__notification-item"> Active Campaigns </li>
-    <li class="sidebar__notification-item"> New Campaigns </li>
-    <li class="sidebar__notification-item"> Archived Campaigns </li>
+    <li class="sidebar__notification-item"><%= link_to "Active Campaigns", admin_campaigns_path %></li>
+    <li class="sidebar__notification-item"><%= link_to "New Campaigns", new_admin_campaign_path %></li>
+    <li class="sidebar__notification-item"><%= link_to "Archived Campaigns", archived_admin_campaigns_path %></li>
   </ul>
   <div class="sidebar__event-title">Event Maps and Data</div>
   <ul class="sidebar__event-list">

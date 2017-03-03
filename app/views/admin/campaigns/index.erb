@@ -25,7 +25,7 @@
           </tr>
         </thead>
         <tbody>
-            <% @campaigns.where(archived: false).each do |campaign| %>
+            <% @campaigns.each do |campaign| %>
                 <tr>
                   <td class="active-campaigns__table-item-color"></td>
                   <td class="active-campaigns__table-item">
@@ -54,47 +54,6 @@
               <% end %>
         </tbody>
       </table>
-  </section>
-
-    <section class="archived-campaigns" id="archived-campaigns">
-      <div class="archived-campaigns__title">Archived Campaigns</div>
-      <table class="archived-campaigns__table">
-        <thead >
-          <tr>
-            <th class="archived-campaigns__table-header"></th>
-            <th class="archived-campaigns__table-header">Category</th>
-            <th class="archived-campaigns__table-header">Campaign Name</th>
-            <th class="archived-campaigns__table-header">Recipients</th>
-            <th class="archived-campaigns__table-header"># of notifications sent in Campaign</th>
-            <th class="archived-campaigns__table-header">Time Stamp</th>
-            <th class="archived-campaigns__table-header">Show</th>
-          </tr>
-        </thead>
-      <tbody>
-          <% @campaigns.where(archived: true).each do |campaign| %>
-              <tr>
-                <td class="archived-campaigns__table-item-color"></td>
-                <td class="archived-campaigns__table-item">
-                  <%= to_human_readable(campaign.alerts.last.severity) unless campaign.alerts.empty? %>
-                </td>
-                <td class="archived-campaigns__table-item">
-                  <%= campaign.name.capitalize %>
-                </td>
-                <td class="archived-campaigns__table-item">
-                </td>
-                <td class="archived-campaigns__table-item">
-                </td>
-                <td class="archived-campaigns__table-item">
-                  <%= campaign.formatted_date %>
-                </td>
-                <td class="archived-campaigns__table-item">
-                  <%= link_to "show", admin_campaign_path(campaign.id), method: :get %>
-                </td>
-              </tr>
-            <% end %>
-      </tbody>
-    </table>
-
   </section>
 
 </main>

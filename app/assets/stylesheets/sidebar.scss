@@ -20,6 +20,10 @@
 .sidebar__notification-item {
   padding-top: 5px;
   padding-bottom: 5px;
+  a {
+    text-decoration: none;
+    color: $color-black;
+  };
 }
 
 .sidebar__event-title {
@@ -43,4 +47,9 @@
     text-decoration: none;
     color: $color-black;
   }
+}
+
+.skip-link {
+  position: absolute;
+  left: -200px;
 }

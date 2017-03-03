@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     get "/tsunami" => "event_maps#tsunami"
 
     resources :campaigns, except: [:edit, :update] do
+      get :archived, on: :collection
+
       resources :alerts, only: [:new, :create]
     end
   end

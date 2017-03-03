@@ -2,7 +2,11 @@ class Admin::CampaignsController < ApplicationController
   before_action :verify_is_admin
 
   def index
-    @campaigns = Campaign.all.order(:updated_at)
+    @campaigns = Campaign.where(archived: false).order(:updated_at)
+  end
+
+  def archived
+    @campaigns = Campaign.where(archived: true).order(:updated_at)
   end
 
   def new

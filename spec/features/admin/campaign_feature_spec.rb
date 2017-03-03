@@ -87,11 +87,39 @@ describe "campaign" do
         expect(page).to_not have_content campaign.formatted_date
       end
 
-      within("#archived-campaigns") do
-        expect(page).to have_content campaign.formatted_date
+      expect(page).to have_content "Campaign Archived"
+    end
+  end
+
+  context "sidebar" do
+    it "lets admin navigate to active campaigns" do
+      visit new_admin_campaign_path
+
+      within(".sidebar") do
+        click_on "Active Campaigns"
       end
 
-      expect(page).to have_content "Campaign Archived"
+      expect(current_path).to eq(admin_campaigns_path)
+    end
+
+    it "lets admin navigate to create campaign" do
+      visit new_admin_campaign_path
+
+      within(".sidebar") do
+        click_on "New Campaign"
+      end
+
+      expect(current_path).to eq(new_admin_campaign_path)
+    end
+
+    it "lets admin navigate to archived campaigns" do
+      visit new_admin_campaign_path
+
+      within(".sidebar") do
+        click_on "Archived Campaigns"
+      end
+
+      expect(current_path).to eq(archived_admin_campaigns_path)
     end
   end
 end
