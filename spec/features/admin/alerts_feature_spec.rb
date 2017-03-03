@@ -29,13 +29,19 @@ describe "alerts" do
     end
 
     it "sends an email alerts to users" do
+      message = double
+      allow(AlertMailer).to receive(:alert_email).and_return(message)
+      allow(message).to receive(:deliver_later)
+
       visit new_admin_campaign_alert_path(campaign)
 
       fill_in :alert_description, with: "tsunami warning"
 
       choose :alert_severity_voluntary_evacuation
 
-      expect { click_on 'Send Notification' }.to change{ ActionMailer::Base.deliveries.count }.by(2)
+      click_button "Send Notification"
+
+      expect(message).to have_received(:deliver_later).exactly(2).times
     end
 
     context "location levels" do
@@ -46,7 +52,7 @@ describe "alerts" do
 
         choose :alert_severity_voluntary_evacuation
 
-        click_on 'Send Notification'
+        click_on "Send Notification"
 
         expect(new_sms).to have_received(:send_message).exactly(2).times
       end

@@ -62,7 +62,7 @@ class Alert < ApplicationRecord
     users.each do |user|
       if user.phone && !user.admin
         SmsService.new.send_message(user.phone, notification_body)
-        AlertMailer.alert_email(user, notification_body).deliver_now
+        AlertMailer.alert_email(user, notification_body).deliver_later
       end
     end
 
