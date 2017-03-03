@@ -63,7 +63,7 @@ The product owner sent out materials on disaster preparedness to the larger team
 
 ## CODE: Design, Build, Deploy
 
-Design:     Our designers reviewed the following libraries and our developers integrated them into our code base: https://github.com/18F/web-design-standards and https://github.com/thoughtbot/bourbon.  Our designers also researched and review U.S. web standards. In compliance with Section 508 of the Americans with Disabilities Act and WCAG 2.0, we used the guidelines from this checklist, http://webaim.org/standards/508/checklist, as well as the IBM Web Accessibility Checklist (http://www-03.ibm.com/able/guidelines/web/ibm508wcag.html ). 
+Design:     Our designers reviewed the following libraries and our developers integrated them into our code base: https://github.com/18F/web-design-standards and https://github.com/thoughtbot/bourbon Our designers also researched and review U.S. web standards. In compliance with Section 508 of the Americans with Disabilities Act and WCAG 2.0, we used the guidelines from this checklist, http://webaim.org/standards/508/checklist, as well as the IBM Web Accessibility Checklist (http://www-03.ibm.com/able/guidelines/web/ibm508wcag.html ). 
  
 Our designers recommended the inclusion of a Conversational UI to provide a warmer more person-centered experience for the user and convey a fun, hip feel.  To develop the front-end UI, we used Rails ERB, Jquery, and Sass.
 
@@ -80,7 +80,7 @@ Geolocation: We used Google API for active geolocation and for our resident user
 
 Configured Mobile and Email Messages: For our admin user, Alan, to send notifications to the resident user (Brenda), we configured SendGrid, a Bluemix platform item, to send emails, and Twilio to deliver SMS. 
 
-Swagger API: We are using one library (https://github.com/fotinakis/swagger-blocks) for the swagger documentation, which will generate the documentation for us, and we are using another (https://github.com/d4be4st/swagger-ui_rails) to give us a URL to present that documentation.  Here is the API endpoint documentation for alerts https://shiny-fawn-staging.mybluemix.net/apidocs.
+Swagger API: We are using one library (https://github.com/fotinakis/swagger-blocks) for the swagger documentation, which will generate the documentation for us, and we are using another (https://github.com/d4be4st/swagger-ui_rails) to give us a URL to present that documentation.  Here is the API endpoint documentation for alerts https://caliconnects.mybluemix.net/apidocs .
 
 ## Building Process  
 We prioritized the backlogs to deliver a minimum viable product and meet the RFI requirements for Prototype B.  Upon building, we had to spike out the data sources required by the RFI to learn how to incorporate them. 
@@ -95,7 +95,7 @@ In Week 2 of development, we had a working resident user prototype. We integrate
 
 Learnings: 
 We talked again with the Program Manager from Ventura County to learn more about the alert types, analytics, and public education.  Based on our discussion, we scoped and included some basic analytics functions, specifically around penetration rate.  We also added a link to provide users access to additional details, and allow the admin to track and confirm if alerts are read. 
-We tested our wireframes with residents (https://github.com/ibmbluemixgarage/caliconnects/blob/master/documentation/Prototype%20Testing/Usability_Testing_Brenda_Notes.JPG) and admin users from Ventura County (https://github.com/ibmbluemixgarage/Caliconnects/blob/master/documentation/Prototype%20Testing/User%20Test_Admin_Ventura_County_Notes.pdf) while the development team built the log-in pages. Our resident users told us to provide some education around alert types.  And, our admin user gave us great insights around the functionality of selecting alert type tabs and to changing ‘Archive’ Campaign to ‘End’ Campaign for greater clarity. 
+We tested our wireframes with residents (https://github.com/ibmbluemixgarage/caliconnects/blob/master/documentation/Prototype%20Testing/Usability_Testing_Brenda_Notes.JPG) and admin users from Ventura County (https://github.com/ibmbluemixgarage/caliconnects/blob/master/documentation/Prototype%20Testing/Usability_Testing_Brenda_Notes.JPG) while the development team built the log-in pages. Our resident users told us to provide some education around alert types.  And, our admin user gave us great insights around the functionality of selecting alert type tabs and to changing ‘Archive’ Campaign to ‘End’ Campaign for greater clarity. 
 
 In Week 3 of development, we produced log-ins, managed the profile, styled the view for both admin and resident users, integrated Swagger, and developed email notifications and XML data feeds and visualization functionality.
 
