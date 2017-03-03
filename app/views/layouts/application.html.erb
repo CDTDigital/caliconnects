@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
 <div class="navbar">
   <%= link_to root_path, class: "navbar__root-wrapper" do %>
       <div class="navbar__logo"></div>
@@ -23,17 +24,15 @@
       </div>
   <% end %>
 
-  <div class="navbar__buttons">
-    <div class="navbar__help">
-      <%= link_to "help", help_path %>
-    </div>
-
-    <% if current_user %>
-        <div class="navbar__logout">
-          <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
-        </div>
-    <% end %>
+  <div class="navbar__help">
+    <%= link_to image_tag("info.svg"), help_path, id: "help"%>    
   </div>
+
+  <% if current_user %>
+      <div class="navbar__logout">
+        <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "navbar__logout-form" %>
+      </div>
+  <% end %>
 
 </div>
 
