@@ -2,9 +2,20 @@ require 'rss'
 
 class DisasterEventsController < ApplicationController
   def earthquakes
-    @earthquakes = HTTParty.get("http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2017-02-09&endtime=2017-02-13&minmagnitude=2")["features"].select do |quake|
+    current_month = Time.now.month.to_s.rjust(2, '0')
+    current_day = Time.now.day.to_s.rjust(2, '0')
+    previous_month = (Time.now - 3.days).month.to_s.rjust(2, '0')
+    previous_day = (Time.now - 3.days).day.to_s.rjust(2, '0')
+
+    @earthquakes = HTTParty.get("http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2017-#{previous_month}-#{previous_day}&endtime=2017-#{current_month}-#{current_day}&minmagnitude=2")["features"].select do |quake|
       quake["properties"]["place"].downcase.include? "california"
     end
+
+    @earthquakes.map { |earthquake|
+      earthquake["properties"]["time"] = Time.at(earthquake["properties"]["time"]/1000)
+
+      earthquake
+    }
 
     render json: @earthquakes
   end
