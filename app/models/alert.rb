@@ -32,7 +32,7 @@ class Alert < ApplicationRecord
   end
 
   def send_notifications(params, return_url)
-    notification_body = description + " click here for more info: " + return_url + "?id=" + Alert.last.id.to_s
+    notification_body = "Alert from California Connects: " + description + " -- click here for more info: " + return_url + "?id=" + Alert.last.id.to_s
 
     if !params[:city].blank?
       users = Address.where(city: params[:city]).map { |address| address.users }.flatten

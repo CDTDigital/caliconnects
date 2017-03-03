@@ -14,7 +14,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       if user.persisted?
         user.addresses.create(address_params) if address_params_present?
 
-        SmsService.new.send_message(user.phone, "Thanks for registering for the Shiny Fawn service! Click this link to confirm your registration: " + user_success_url)
+        SmsService.new.send_message(user.phone, "Thanks for registering for the California Connects Alerts service! Click this link to confirm your registration: " + user_success_url)
       end
     end
   end

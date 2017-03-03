@@ -37,7 +37,7 @@ describe Admin::CampaignsController do
 
         post :create, params: campaign_params
 
-        expected_sms_body = "take shelter click here for more info: " + preparedness_url + "?id=" + Alert.last.id.to_s
+        expected_sms_body = "Alert from California Connects: " + "take shelter -- click here for more info: " + preparedness_url + "?id=" + Alert.last.id.to_s
 
         expect(new_sms).to have_received(:send_message).with(user.phone, expected_sms_body)
       end
