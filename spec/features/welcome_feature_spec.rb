@@ -44,4 +44,13 @@ describe "welcome" do
 
     expect(status_code).to eq 200
   end
+
+  it "links to learn about alerts page" do
+    visit root_path
+
+    click_link 'Learn about the alerts'
+
+    expect(current_path).to eq about_alerts_path
+    expect(status_code).to eq 200
+  end
 end

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/preparedness" => "welcome#preparedness"
   get "/terms" => "welcome#terms"
   get "/help" => "welcome#help"
+  get "/about_alerts" => "welcome#about_alerts"
 
   get "disaster_events/earthquakes" => "disaster_events#earthquakes"
   get "disaster_events/fires" => "disaster_events#fires"

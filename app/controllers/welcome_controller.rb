@@ -20,4 +20,7 @@ class WelcomeController < ApplicationController
 
   def help
   end
+
+  def about_alerts
+  end
 end

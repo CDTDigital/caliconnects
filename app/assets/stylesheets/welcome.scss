@@ -1,6 +1,14 @@
 .welcome {
 }
 
+.welcome__about {
+  font-size: 1.0em;
+  font-family: $font-sans;
+  a {
+    text-decoration: none;
+  }
+}
+
 @media screen and (min-width: $small-min) and (max-width: $small-max){
   .welcome__container {
       @include outer-container(80%);
