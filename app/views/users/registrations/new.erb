@@ -53,6 +53,8 @@
           <p>Hey, <span id="signup-page__user-greeting">Brenda</span></p>
         </div>
 
+
+
         <div class="signup-page__box-area">
           <div class="signup-page__label">
             <%= f.label :password, class: "signup-page__label-title" %>
@@ -88,9 +90,12 @@
           <div class="signup-page__icon-7"></div>
         </div>
 
-
         <div class="signup-page__title">
           We'll need your email.
+        </div>
+
+        <div class="signup-page__details">
+          We will use this email to send alerts, but only if it's relevant to you. We will not share your information.  See terms and conditions.
         </div>
 
         <div class="signup-page__box-area">
@@ -159,7 +164,7 @@
         </div>
 
         <div class="signup-page__details">
-          What is your home address? We want to make sure it is safe from anything that can damage it.
+          What is your home address?  We want to make sure it is safe from anything that can damage it. We will not share your information.  See terms and conditions.
         </div>
 
         <div class="signup-page__box-area">
@@ -217,7 +222,7 @@
         <div class="signup-page__details">
           <p>
             When you get an alert, there will always be a link for more details.
-            <b>Please, Please, Please, click this link</b> to get the details. This helps us know how many people are
+            <b>Please click this link</b> to get the details. This helps us know how many people are
             aware of the event, which helps to inform our next steps. Clicking the link helps both of us.
           </p>
 
@@ -233,7 +238,7 @@
               </p>
 
 
-              <%= link_to "See terms and conditions", terms_path, class: "signup-page__terms-link" %>
+              <%= link_to "See terms and conditions", terms_path, class: "signup-page__terms-link", target: "_blank" %>
           </div>
 
         </div>
