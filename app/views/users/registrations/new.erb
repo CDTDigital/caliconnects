@@ -174,7 +174,7 @@
             <%= label_tag :address, nil, class: "signup-page__label-title" %>
             <div class="signup-page__label-required">Required</div>
           </div>
-          <%= text_field_tag :address, "", id: "autocomplete", onFocus: "geolocate()" %>
+          <%= text_field_tag :address, "", id: "autocomplete", class: "signup-page__input", onFocus: "geolocate()" %>
         </div>
 
         <table id="address" class="signup-address-table">
