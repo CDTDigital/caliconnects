@@ -1,0 +1,24 @@
+engines:
+  rubocop:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+
+ratings:
+  paths:
+  - app/**
+  - lib/**
+
+exclude_paths:
+- "spec/**/*"
+- "**/vendor/**/*"
+- "app/assets/uswds-0.14.0/**"
+
